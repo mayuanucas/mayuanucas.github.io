@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Raven</title>
+        <link>https://mayuanucas.github.io/</link>
+        <description>网站描述</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mayuanucas@163.com (Raven)</managingEditor>
+            <webMaster>mayuanucas@163.com (Raven)</webMaster><lastBuildDate>Fri, 01 Jan 2021 21:57:23 &#43;0800</lastBuildDate>
+            <atom:link href="https://mayuanucas.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>博客迁移</title>
+    <link>https://mayuanucas.github.io/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB/</link>
+    <pubDate>Fri, 01 Jan 2021 21:57:23 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mayuanucas.github.io/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB/</guid>
+    <description><![CDATA[2021年1月1日，告别使用了三年的Hexo，正式迁移到Hugo. 原因 使用Hexo+Next+GitHub Pages搭建博客已经有三年的时间]]></description>
+</item></channel>
+</rss>
