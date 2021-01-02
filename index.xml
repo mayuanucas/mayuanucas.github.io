@@ -21,18 +21,18 @@
     <guid>https://mayuanucas.github.io/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%85%A5%E9%97%A8/</guid>
     <description><![CDATA[正则表达式，英文是 Regular Expression，简称 RE。顾名思义，正则其实就是一种描述文本内容组成规律的表示方式。在编程语言中，正则常常用来简化]]></description>
 </item><item>
-    <title>Spark简单介绍</title>
-    <link>https://mayuanucas.github.io/spark%E7%AE%80%E4%BB%8B/</link>
+    <title>Spark简明介绍</title>
+    <link>https://mayuanucas.github.io/spark/</link>
     <pubDate>Mon, 09 Mar 2020 17:54:58 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://mayuanucas.github.io/spark%E7%AE%80%E4%BB%8B/</guid>
+    <guid>https://mayuanucas.github.io/spark/</guid>
     <description><![CDATA[Apache Spark 是一个快速的，多用途的集群计算系统。它提供了 Java，Scala，Python 和 R 的高级 API，以及一个支持通用的执行图计算的优化过的引]]></description>
 </item><item>
-    <title>XGBoost与LightGBM介绍</title>
-    <link>https://mayuanucas.github.io/xgboost%E4%B8%8Elightgbm/</link>
+    <title>XGBoost、LightGBM、CatBoost</title>
+    <link>https://mayuanucas.github.io/xgboost-lightgbm/</link>
     <pubDate>Mon, 10 Feb 2020 16:31:40 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://mayuanucas.github.io/xgboost%E4%B8%8Elightgbm/</guid>
+    <guid>https://mayuanucas.github.io/xgboost-lightgbm/</guid>
     <description><![CDATA[XGBoost是陈天奇于2014年提出的一套并行boost算法的工具库, LightGBM是微软推出的boosting框架, CatBoost是]]></description>
 </item><item>
     <title>Github入门与实践</title>

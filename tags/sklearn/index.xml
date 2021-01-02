@@ -5,11 +5,11 @@
         <description>sklearn - 标签 - Raven</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mayuanucas@163.com (Raven)</managingEditor>
             <webMaster>mayuanucas@163.com (Raven)</webMaster><lastBuildDate>Mon, 10 Feb 2020 16:31:40 &#43;0800</lastBuildDate><atom:link href="https://mayuanucas.github.io/tags/sklearn/" rel="self" type="application/rss+xml" /><item>
-    <title>XGBoost与LightGBM介绍</title>
-    <link>https://mayuanucas.github.io/xgboost%E4%B8%8Elightgbm/</link>
+    <title>XGBoost、LightGBM、CatBoost</title>
+    <link>https://mayuanucas.github.io/xgboost-lightgbm/</link>
     <pubDate>Mon, 10 Feb 2020 16:31:40 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://mayuanucas.github.io/xgboost%E4%B8%8Elightgbm/</guid>
+    <guid>https://mayuanucas.github.io/xgboost-lightgbm/</guid>
     <description><![CDATA[XGBoost是陈天奇于2014年提出的一套并行boost算法的工具库, LightGBM是微软推出的boosting框架, CatBoost是]]></description>
 </item></channel>
 </rss>
