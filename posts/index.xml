@@ -4,7 +4,14 @@
         <link>https://mayuanucas.github.io/posts/</link>
         <description>所有文章 | Raven</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mayuanucas@163.com (Raven)</managingEditor>
-            <webMaster>mayuanucas@163.com (Raven)</webMaster><lastBuildDate>Fri, 01 Jan 2021 21:57:23 &#43;0800</lastBuildDate><atom:link href="https://mayuanucas.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>mayuanucas@163.com (Raven)</webMaster><lastBuildDate>Sat, 02 Jan 2021 20:47:37 &#43;0800</lastBuildDate><atom:link href="https://mayuanucas.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Algolia</title>
+    <link>https://mayuanucas.github.io/algolia/</link>
+    <pubDate>Sat, 02 Jan 2021 20:47:37 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mayuanucas.github.io/algolia/</guid>
+    <description><![CDATA[<p>探索如何自动更新索引。</p>]]></description>
+</item><item>
     <title>博客迁移</title>
     <link>https://mayuanucas.github.io/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB/</link>
     <pubDate>Fri, 01 Jan 2021 21:57:23 &#43;0800</pubDate>
