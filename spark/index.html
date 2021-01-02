@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/mayuanucas.github.io\/spark\/"
-        },"genre": "posts","keywords": "Spark, scala","wordcount":  256 ,
+        },"genre": "posts","keywords": "Spark, scala","wordcount":  5439 ,
         "url": "https:\/\/mayuanucas.github.io\/spark\/","datePublished": "2020-03-09T17:54:58+08:00","dateModified": "2020-03-09T17:54:58+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -106,8 +106,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Spark简明介绍</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://mayuanucas.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Raven</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw"></i>机器学习</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-03-09">2020-03-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 256 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-03-09">2020-03-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5439 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 11 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -116,12 +116,730 @@
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#简介">简介</a></li>
+    <li><a href="#特点">特点</a></li>
+    <li><a href="#集群架构">集群架构</a></li>
+    <li><a href="#核心组件">核心组件</a>
+      <ul>
+        <li><a href="#spark-sql">Spark SQL</a></li>
+        <li><a href="#spark-streaming">Spark Streaming</a></li>
+        <li><a href="#mllib">MLlib</a></li>
+        <li><a href="#graphx">Graphx</a></li>
+      </ul>
+    </li>
+    <li><a href="#弹性式数据集rdds">弹性式数据集RDDs</a></li>
+    <li><a href="#spark-sql-1">Spark SQL</a>
+      <ul>
+        <li><a href="#简介-1">简介</a></li>
+        <li><a href="#dataframe--dataset">DataFrame &amp; DataSet</a>
+          <ul>
+            <li><a href="#dataframe">DataFrame</a></li>
+            <li><a href="#dataframe-对比-rdds">DataFrame 对比 RDDs</a></li>
+            <li><a href="#dataset">DataSet</a></li>
+            <li><a href="#静态类型与运行时类型安全">静态类型与运行时类型安全</a></li>
+            <li><a href="#dataframe--dataset--rdds-总结">DataFrame &amp; DataSet &amp; RDDs 总结</a></li>
+            <li><a href="#spark-sql的运行原理">Spark SQL的运行原理</a>
+              <ul>
+                <li><a href="#逻辑计划logical-plan">逻辑计划(Logical Plan)</a></li>
+                <li><a href="#物理计划physical-plan">物理计划(Physical Plan)</a></li>
+                <li><a href="#执行">执行</a></li>
+              </ul>
+            </li>
+            <li><a href="#structured-api基本使用">Structured API基本使用</a>
+              <ul>
+                <li><a href="#创建dataframe和dataset">创建DataFrame和Dataset</a>
+                  <ul>
+                    <li><a href="#创建dataframe">创建DataFrame</a></li>
+                    <li><a href="#创建dataset">创建Dataset</a>
+                      <ul>
+                        <li><a href="#由外部数据集创建">由外部数据集创建</a></li>
+                        <li><a href="#由内部数据集创建">由内部数据集创建</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#由rdd创建dataframe">由RDD创建DataFrame</a>
+                      <ul>
+                        <li><a href="#使用反射推断">使用反射推断</a></li>
+                        <li><a href="#以编程方式指定schema">以编程方式指定Schema</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#dataframes与datasets互相转换">DataFrames与Datasets互相转换</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#columns列操作">Columns列操作</a>
+          <ul>
+            <li><a href="#引用列">引用列</a></li>
+            <li><a href="#新增列">新增列</a></li>
+            <li><a href="#删除列">删除列</a></li>
+            <li><a href="#重命名列">重命名列</a></li>
+          </ul>
+        </li>
+        <li><a href="#使用structured-api进行基本查询">使用Structured API进行基本查询</a></li>
+        <li><a href="#使用spark-sql进行基本查询">使用Spark SQL进行基本查询</a>
+          <ul>
+            <li><a href="#spark--sql基本使用">Spark  SQL基本使用</a></li>
+            <li><a href="#全局临时视图">全局临时视图</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#参考文献">参考文献</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>Apache Spark 是一个快速的，多用途的集群计算系统。它提供了 Java，Scala，Python 和 R 的高级 API，以及一个支持通用的执行图计算的优化过的引擎。它还支持一组丰富的高级工具，包括使用 SQL 处理结构化数据处理的 <a href="https://spark.apache.org/docs/latest/sql-programming-guide.html" target="_blank" rel="noopener noreffer">Spark SQL</a>，用于机器学习的 <a href="https://spark.apache.org/docs/latest/ml-guide.html" target="_blank" rel="noopener noreffer">MLlib</a>，用于图计算的 <a href="https://spark.apache.org/docs/latest/graphx-programming-guide.html" target="_blank" rel="noopener noreffer">GraphX</a>，以及 <a href="https://spark.apache.org/docs/latest/streaming-programming-guide.html" target="_blank" rel="noopener noreffer">Spark Streaming</a>。</p>
 <!-- more -->
 <h1 id="简介">简介</h1>
 <p>Spark 于 2009 年诞生于加州大学伯克利分校 AMPLab，2013 年被捐赠给 Apache 软件基金会，2014 年 2 月成为 Apache 的顶级项目。相对于 MapReduce 的批处理计算，Spark 可以带来上百倍的性能提升，因此它成为继 MapReduce 之后，最为广泛使用的分布式计算框架。</p>
+<h1 id="特点">特点</h1>
+<p>Apache Spark 具有以下特点：</p>
+<ul>
+<li>使用先进的 DAG 调度程序，查询优化器和物理执行引擎，以实现性能上的保证；</li>
+<li>多语言支持，目前支持的有 Java，Scala，Python 和 R；</li>
+<li>提供高级 API，可以轻松地构建应用程序；</li>
+<li>支持批处理，流处理和复杂的业务分析；</li>
+<li>丰富的类库支持：包括 SQL，MLlib，GraphX 和 Spark Streaming 等库，并且可以将它们无缝地进行组合；</li>
+<li>丰富的部署模式：支持本地模式和自带的集群模式，也支持在 Hadoop，Mesos，Kubernetes 上运行；</li>
+<li>多数据源支持：支持访问 HDFS，Alluxio，Cassandra，HBase，Hive 以及数百个其他数据源中的数据。</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Spark%e7%ae%80%e4%bb%8b/future-of-spark.png"
+        data-srcset="/Spark%e7%ae%80%e4%bb%8b/future-of-spark.png, /Spark%e7%ae%80%e4%bb%8b/future-of-spark.png 1.5x, /Spark%e7%ae%80%e4%bb%8b/future-of-spark.png 2x"
+        data-sizes="auto"
+        alt="/Spark简介/future-of-spark.png"
+        title="/Spark简介/future-of-spark.png" /></p>
+<h1 id="集群架构">集群架构</h1>
+<table>
+<thead>
+<tr>
+<th>Term（术语）</th>
+<th>Meaning（含义）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application</td>
+<td>Spark 应用程序，由集群上的一个 Driver 节点和多个 Executor 节点组成。</td>
+</tr>
+<tr>
+<td>Driver program</td>
+<td>主运用程序，该进程运行应用的 main() 方法并且创建 SparkContext</td>
+</tr>
+<tr>
+<td>Cluster manager</td>
+<td>集群资源管理器（例如，Standlone Manager，Mesos，YARN）</td>
+</tr>
+<tr>
+<td>Worker node</td>
+<td>执行计算任务的工作节点</td>
+</tr>
+<tr>
+<td>Executor</td>
+<td>位于工作节点上的应用进程，负责执行计算任务并且将输出数据保存到内存或者磁盘中</td>
+</tr>
+<tr>
+<td>Task</td>
+<td>被发送到 Executor 中的工作单元</td>
+</tr>
+</tbody>
+</table>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Spark%e7%ae%80%e4%bb%8b/spark-%e9%9b%86%e7%be%a4%e6%a8%a1%e5%bc%8f.png"
+        data-srcset="/Spark%e7%ae%80%e4%bb%8b/spark-%e9%9b%86%e7%be%a4%e6%a8%a1%e5%bc%8f.png, /Spark%e7%ae%80%e4%bb%8b/spark-%e9%9b%86%e7%be%a4%e6%a8%a1%e5%bc%8f.png 1.5x, /Spark%e7%ae%80%e4%bb%8b/spark-%e9%9b%86%e7%be%a4%e6%a8%a1%e5%bc%8f.png 2x"
+        data-sizes="auto"
+        alt="/Spark简介/spark-集群模式.png"
+        title="集群模式" /></p>
+<p><strong>执行过程</strong>：</p>
+<ol>
+<li>用户程序创建 SparkContext 后，它会连接到集群资源管理器，集群资源管理器会为用户程序分配计算资源，并启动 Executor；</li>
+<li>Dirver 将计算程序划分为不同的执行阶段和多个 Task，之后将 Task 发送给 Executor；</li>
+<li>Executor 负责执行 Task，并将执行状态汇报给 Driver，同时也会将当前节点资源的使用情况汇报给集群资源管理器。</li>
+</ol>
+<h1 id="核心组件">核心组件</h1>
+<p>Spark 基于 Spark Core 扩展了四个核心组件，分别用于满足不同领域的计算需求。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Spark%e7%ae%80%e4%bb%8b/spark-stack.png"
+        data-srcset="/Spark%e7%ae%80%e4%bb%8b/spark-stack.png, /Spark%e7%ae%80%e4%bb%8b/spark-stack.png 1.5x, /Spark%e7%ae%80%e4%bb%8b/spark-stack.png 2x"
+        data-sizes="auto"
+        alt="/Spark简介/spark-stack.png"
+        title="核心组件" /></p>
+<h2 id="spark-sql">Spark SQL</h2>
+<p>Spark SQL 主要用于结构化数据的处理。其具有以下特点：</p>
+<ul>
+<li>能够将 SQL 查询与 Spark 程序无缝混合，允许您使用 SQL 或 DataFrame API 对结构化数据进行查询；</li>
+<li>支持多种数据源，包括 Hive，Avro，Parquet，ORC，JSON 和 JDBC；</li>
+<li>支持 HiveQL 语法以及用户自定义函数 (UDF)，允许你访问现有的 Hive 仓库；</li>
+<li>支持标准的 JDBC 和 ODBC 连接；</li>
+<li>支持优化器，列式存储和代码生成等特性，以提高查询效率。</li>
+</ul>
+<h2 id="spark-streaming">Spark Streaming</h2>
+<p>Spark Streaming 主要用于快速构建可扩展，高吞吐量，高容错的流处理程序。支持从 HDFS，Flume，Kafka，Twitter 和 ZeroMQ 读取数据，并进行处理。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Spark%e7%ae%80%e4%bb%8b/spark-streaming-arch.png"
+        data-srcset="/Spark%e7%ae%80%e4%bb%8b/spark-streaming-arch.png, /Spark%e7%ae%80%e4%bb%8b/spark-streaming-arch.png 1.5x, /Spark%e7%ae%80%e4%bb%8b/spark-streaming-arch.png 2x"
+        data-sizes="auto"
+        alt="/Spark简介/spark-streaming-arch.png"
+        title="/Spark简介/spark-streaming-arch.png" /></p>
+<p>Spark Streaming 的本质是微批处理，它将数据流进行极小粒度的拆分，拆分为多个批处理，从而达到接近于流处理的效果。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Spark%e7%ae%80%e4%bb%8b/spark-streaming-flow.png"
+        data-srcset="/Spark%e7%ae%80%e4%bb%8b/spark-streaming-flow.png, /Spark%e7%ae%80%e4%bb%8b/spark-streaming-flow.png 1.5x, /Spark%e7%ae%80%e4%bb%8b/spark-streaming-flow.png 2x"
+        data-sizes="auto"
+        alt="/Spark简介/spark-streaming-flow.png"
+        title="/Spark简介/spark-streaming-flow.png" /></p>
+<h2 id="mllib">MLlib</h2>
+<p>MLlib 是 Spark 的机器学习库。其设计目标是使得机器学习变得简单且可扩展。它提供了以下工具：</p>
+<ul>
+<li><strong>常见的机器学习算法</strong>：如分类，回归，聚类和协同过滤；</li>
+<li><strong>特征化</strong>：特征提取，转换，降维和选择；</li>
+<li><strong>管道</strong>：用于构建，评估和调整 ML 管道的工具；</li>
+<li><strong>持久性</strong>：保存和加载算法，模型，管道数据；</li>
+<li><strong>实用工具</strong>：线性代数，统计，数据处理等。</li>
+</ul>
+<h2 id="graphx">Graphx</h2>
+<p>GraphX 是 Spark 中用于图形计算和图形并行计算的新组件。在高层次上，GraphX 通过引入一个新的图形抽象来扩展 RDD(一种具有附加到每个顶点和边缘的属性的定向多重图形)。为了支持图计算，GraphX 提供了一组基本运算符（如：subgraph，joinVertices 和 aggregateMessages）以及优化后的 Pregel API。此外，GraphX 还包括越来越多的图形算法和构建器，以简化图形分析任务。</p>
+<h1 id="弹性式数据集rdds">弹性式数据集RDDs</h1>
+<p><code>RDD</code> 全称为 Resilient Distributed Datasets，是 Spark 最基本的数据抽象，它是只读的、分区记录的集合，支持并行操作，可以由外部数据集或其他 RDD 转换而来，它具有以下特性：</p>
+<ul>
+<li>一个 RDD 由一个或者多个分区（Partitions）组成。对于 RDD 来说，每个分区会被一个计算任务所处理，用户可以在创建 RDD 时指定其分区个数，如果没有指定，则默认采用程序所分配到的 CPU 的核心数；</li>
+<li>RDD 拥有一个用于计算分区的函数 compute；</li>
+<li>RDD 会保存彼此间的依赖关系，RDD 的每次转换都会生成一个新的依赖关系，这种 RDD 之间的依赖关系就像流水线一样。在部分分区数据丢失后，可以通过这种依赖关系重新计算丢失的分区数据，而不是对 RDD 的所有分区进行重新计算；</li>
+<li>Key-Value 型的 RDD 还拥有 Partitioner(分区器)，用于决定数据被存储在哪个分区中，目前 Spark 中支持 HashPartitioner(按照哈希分区) 和 RangeParationer(按照范围进行分区)；</li>
+<li>一个优先位置列表 (可选)，用于存储每个分区的优先位置 (prefered location)。对于一个 HDFS 文件来说，这个列表保存的就是每个分区所在的块的位置，按照“移动数据不如移动计算“的理念，Spark 在进行任务调度的时候，会尽可能的将计算任务分配到其所要处理数据块的存储位置。</li>
+</ul>
+<p><code>RDD[T]</code> 抽象类的部分相关代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// 由子类实现以计算给定分区
+</span><span class="c1"></span><span class="k">def</span> <span class="n">compute</span><span class="o">(</span><span class="n">split</span><span class="k">:</span> <span class="kt">Partition</span><span class="o">,</span> <span class="n">context</span><span class="k">:</span> <span class="kt">TaskContext</span><span class="o">)</span><span class="k">:</span> <span class="kt">Iterator</span><span class="o">[</span><span class="kt">T</span><span class="o">]</span>
+
+<span class="c1">// 获取所有分区
+</span><span class="c1"></span><span class="k">protected</span> <span class="k">def</span> <span class="n">getPartitions</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">Partition</span><span class="o">]</span>
+
+<span class="c1">// 获取所有依赖关系
+</span><span class="c1"></span><span class="k">protected</span> <span class="k">def</span> <span class="n">getDependencies</span><span class="k">:</span> <span class="kt">Seq</span><span class="o">[</span><span class="kt">Dependency</span><span class="o">[</span><span class="k">_</span><span class="o">]]</span> <span class="k">=</span> <span class="n">deps</span>
+
+<span class="c1">// 获取优先位置列表
+</span><span class="c1"></span><span class="k">protected</span> <span class="k">def</span> <span class="n">getPreferredLocations</span><span class="o">(</span><span class="n">split</span><span class="k">:</span> <span class="kt">Partition</span><span class="o">)</span><span class="k">:</span> <span class="kt">Seq</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Nil</span>
+
+<span class="c1">// 分区器 由子类重写以指定它们的分区方式
+</span><span class="c1"></span><span class="nd">@transient</span> <span class="k">val</span> <span class="n">partitioner</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Partitioner</span><span class="o">]</span> <span class="k">=</span> <span class="nc">None</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="spark-sql-1">Spark SQL</h1>
+<h2 id="简介-1">简介</h2>
+<p>Spark SQL 是 Spark 中的一个子模块，主要用于操作结构化数据。它具有以下特点：</p>
+<ul>
+<li>能够将 SQL 查询与 Spark 程序无缝混合，允许您使用 SQL 或 DataFrame API 对结构化数据进行查询；</li>
+<li>支持多种开发语言；</li>
+<li>支持多达上百种的外部数据源，包括 Hive，Avro，Parquet，ORC，JSON 和 JDBC 等；</li>
+<li>支持 HiveQL 语法以及 Hive SerDes 和 UDF，允许你访问现有的 Hive 仓库；</li>
+<li>支持标准的 JDBC 和 ODBC 连接；</li>
+<li>支持优化器，列式存储和代码生成等特性；</li>
+<li>支持扩展并能保证容错。</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Spark%e7%ae%80%e4%bb%8b/sql-hive-arch.png"
+        data-srcset="/Spark%e7%ae%80%e4%bb%8b/sql-hive-arch.png, /Spark%e7%ae%80%e4%bb%8b/sql-hive-arch.png 1.5x, /Spark%e7%ae%80%e4%bb%8b/sql-hive-arch.png 2x"
+        data-sizes="auto"
+        alt="/Spark简介/sql-hive-arch.png"
+        title="/Spark简介/sql-hive-arch.png" /></p>
+<h2 id="dataframe--dataset">DataFrame &amp; DataSet</h2>
+<h3 id="dataframe">DataFrame</h3>
+<p>为了支持结构化数据的处理，Spark SQL 提供了新的数据结构 DataFrame。DataFrame 是一个由具名列组成的数据集。它在概念上等同于关系数据库中的表或 R/Python 语言中的 dataframe。 由于 Spark SQL 支持多种语言的开发，所以每种语言都定义了 DataFrame 的抽象，主要如下：</p>
+<table>
+<thead>
+<tr>
+<th>语言</th>
+<th>主要抽象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scala</td>
+<td>Dataset[T] &amp; DataFrame (Dataset[Row] 的别名)</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>Dataset[T]</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>DataFrame</td>
+</tr>
+<tr>
+<td>R</td>
+<td>DataFrame</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dataframe-对比-rdds">DataFrame 对比 RDDs</h3>
+<p>DataFrame 和 RDDs 最主要的区别在于一个面向的是结构化数据，一个面向的是非结构化数据，它们内部的数据结构如下：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Spark%e7%ae%80%e4%bb%8b/spark-dataFrame&#43;RDDs.png"
+        data-srcset="/Spark%e7%ae%80%e4%bb%8b/spark-dataFrame&#43;RDDs.png, /Spark%e7%ae%80%e4%bb%8b/spark-dataFrame&#43;RDDs.png 1.5x, /Spark%e7%ae%80%e4%bb%8b/spark-dataFrame&#43;RDDs.png 2x"
+        data-sizes="auto"
+        alt="/Spark简介/spark-dataFrame&#43;RDDs.png"
+        title="/Spark简介/spark-dataFrame&#43;RDDs.png" /></p>
+<p>DataFrame 内部的有明确 Scheme 结构，即列名、列字段类型都是已知的，这带来的好处是可以减少数据读取以及更好地优化执行计划，从而保证查询效率。</p>
+<p><strong>DataFrame 和 RDDs 应该如何选择？</strong></p>
+<ul>
+<li>如果你想使用函数式编程而不是 DataFrame API，则使用 RDDs；</li>
+<li>如果你的数据是非结构化的 (比如流媒体或者字符流)，则使用 RDDs，</li>
+<li>如果你的数据是结构化的 (如 RDBMS 中的数据) 或者半结构化的 (如日志)，出于性能上的考虑，应优先使用 DataFrame。</li>
+</ul>
+<h3 id="dataset">DataSet</h3>
+<p>Dataset 也是分布式的数据集合，在 Spark 1.6 版本被引入，它集成了 RDD 和 DataFrame 的优点，具备强类型的特点，同时支持 Lambda 函数，但只能在 Scala 和 Java 语言中使用。在 Spark 2.0 后，为了方便开发者，Spark 将 DataFrame 和 Dataset 的 API 融合到一起，提供了结构化的 API(Structured API)，即用户可以通过一套标准的 API 就能完成对两者的操作。</p>
+<h3 id="静态类型与运行时类型安全">静态类型与运行时类型安全</h3>
+<p>静态类型 (Static-typing) 与运行时类型安全 (runtime type-safety) 主要表现是：在实际使用中，如果你用的是 Spark SQL 的查询语句，则直到运行时你才会发现有语法错误，而如果你用的是 DataFrame 和 Dataset，则在编译时就可以发现错误 (这节省了开发时间和整体代价)。DataFrame 和 Dataset 主要区别在于：</p>
+<p>在 DataFrame 中，当你调用了 API 之外的函数，编译器就会报错，但如果你使用了一个不存在的字段名字，编译器依然无法发现。而 Dataset 的 API 都是用 Lambda 函数和 JVM 类型对象表示的，所有不匹配的类型参数在编译时就会被发现。</p>
+<p>以上这些最终都被解释成关于类型安全图谱，对应开发中的语法和分析错误。在图谱中，Dataset 最严格，但对于开发者来说效率最高。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Spark%e7%ae%80%e4%bb%8b/spark-%e8%bf%90%e8%a1%8c%e5%ae%89%e5%85%a8.png"
+        data-srcset="/Spark%e7%ae%80%e4%bb%8b/spark-%e8%bf%90%e8%a1%8c%e5%ae%89%e5%85%a8.png, /Spark%e7%ae%80%e4%bb%8b/spark-%e8%bf%90%e8%a1%8c%e5%ae%89%e5%85%a8.png 1.5x, /Spark%e7%ae%80%e4%bb%8b/spark-%e8%bf%90%e8%a1%8c%e5%ae%89%e5%85%a8.png 2x"
+        data-sizes="auto"
+        alt="/Spark简介/spark-运行安全.png"
+        title="/Spark简介/spark-运行安全.png" /></p>
+<h3 id="dataframe--dataset--rdds-总结">DataFrame &amp; DataSet &amp; RDDs 总结</h3>
+<p>这里对三者做一下简单的总结：</p>
+<ul>
+<li>RDDs 适合非结构化数据的处理，而 DataFrame &amp; DataSet 更适合结构化数据和半结构化的处理；</li>
+<li>DataFrame &amp; DataSet 可以通过统一的 Structured API 进行访问，而 RDDs 则更适合函数式编程的场景；</li>
+<li>相比于 DataFrame 而言，DataSet 是强类型的 (Typed)，有着更为严格的静态类型检查；</li>
+<li>DataSets、DataFrames、SQL 的底层都依赖了 RDDs API，并对外提供结构化的访问接口。</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Spark%e7%ae%80%e4%bb%8b/spark-structure-api.png"
+        data-srcset="/Spark%e7%ae%80%e4%bb%8b/spark-structure-api.png, /Spark%e7%ae%80%e4%bb%8b/spark-structure-api.png 1.5x, /Spark%e7%ae%80%e4%bb%8b/spark-structure-api.png 2x"
+        data-sizes="auto"
+        alt="/Spark简介/spark-structure-api.png"
+        title="/Spark简介/spark-structure-api.png" /></p>
+<h3 id="spark-sql的运行原理">Spark SQL的运行原理</h3>
+<p>DataFrame、DataSet 和 Spark SQL 的实际执行流程都是相同的：</p>
+<ol>
+<li>进行 DataFrame/Dataset/SQL 编程；</li>
+<li>如果是有效的代码，即代码没有编译错误，Spark 会将其转换为一个逻辑计划；</li>
+<li>Spark 将此逻辑计划转换为物理计划，同时进行代码优化；</li>
+<li>Spark 然后在集群上执行这个物理计划 (基于 RDD 操作) 。</li>
+</ol>
+<h4 id="逻辑计划logical-plan">逻辑计划(Logical Plan)</h4>
+<p>执行的第一个阶段是将用户代码转换成一个逻辑计划。它首先将用户代码转换成 <code>unresolved logical plan</code>(未解决的逻辑计划)，之所以这个计划是未解决的，是因为尽管您的代码在语法上是正确的，但是它引用的表或列可能不存在。 Spark 使用 <code>analyzer</code>(分析器) 基于 <code>catalog</code>(存储的所有表和 <code>DataFrames</code> 的信息) 进行解析。解析失败则拒绝执行，解析成功则将结果传给 <code>Catalyst</code> 优化器 (<code>Catalyst Optimizer</code>)，优化器是一组规则的集合，用于优化逻辑计划，通过谓词下推等方式进行优化，最终输出优化后的逻辑执行计划。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Spark%e7%ae%80%e4%bb%8b/spark-Logical-Planning.png"
+        data-srcset="/Spark%e7%ae%80%e4%bb%8b/spark-Logical-Planning.png, /Spark%e7%ae%80%e4%bb%8b/spark-Logical-Planning.png 1.5x, /Spark%e7%ae%80%e4%bb%8b/spark-Logical-Planning.png 2x"
+        data-sizes="auto"
+        alt="/Spark简介/spark-Logical-Planning.png"
+        title="/Spark简介/spark-Logical-Planning.png" /></p>
+<h4 id="物理计划physical-plan">物理计划(Physical Plan)</h4>
+<p>得到优化后的逻辑计划后，Spark 就开始了物理计划过程。 它通过生成不同的物理执行策略，并通过成本模型来比较它们，从而选择一个最优的物理计划在集群上面执行的。物理规划的输出结果是一系列的 RDDs 和转换关系 (transformations)。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Spark%e7%ae%80%e4%bb%8b/spark-Physical-Planning.png"
+        data-srcset="/Spark%e7%ae%80%e4%bb%8b/spark-Physical-Planning.png, /Spark%e7%ae%80%e4%bb%8b/spark-Physical-Planning.png 1.5x, /Spark%e7%ae%80%e4%bb%8b/spark-Physical-Planning.png 2x"
+        data-sizes="auto"
+        alt="/Spark简介/spark-Physical-Planning.png"
+        title="/Spark简介/spark-Physical-Planning.png" /></p>
+<h4 id="执行">执行</h4>
+<p>在选择一个物理计划后，Spark 运行其 RDDs 代码，并在运行时执行进一步的优化，生成本地 Java 字节码，最后将运行结果返回给用户。</p>
+<h3 id="structured-api基本使用">Structured API基本使用</h3>
+<h4 id="创建dataframe和dataset">创建DataFrame和Dataset</h4>
+<h5 id="创建dataframe">创建DataFrame</h5>
+<p>Spark 中所有功能的入口点是 <code>SparkSession</code>，可以使用 <code>SparkSession.builder()</code> 创建。创建后应用程序就可以从现有 RDD，Hive 表或 Spark 数据源创建 DataFrame。示例如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">val</span> <span class="n">spark</span> <span class="k">=</span> <span class="nc">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">().</span><span class="n">appName</span><span class="o">(</span><span class="s">&#34;Spark-SQL&#34;</span><span class="o">).</span><span class="n">master</span><span class="o">(</span><span class="s">&#34;local[2]&#34;</span><span class="o">).</span><span class="n">getOrCreate</span><span class="o">()</span>
+<span class="k">val</span> <span class="n">df</span> <span class="k">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">json</span><span class="o">(</span><span class="s">&#34;/usr/file/json/emp.json&#34;</span><span class="o">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="o">()</span>
+
+<span class="c1">// 建议在进行 spark SQL 编程前导入下面的隐式转换，因为 DataFrames 和 dataSets 中很多操作都依赖了隐式转换
+</span><span class="c1"></span><span class="k">import</span> <span class="nn">spark.implicits._</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>可以使用 <code>spark-shell</code> 进行测试，需要注意的是 <code>spark-shell</code> 启动后会自动创建一个名为 <code>spark</code> 的 <code>SparkSession</code>，在命令行中可以直接引用即可：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Spark%e7%ae%80%e4%bb%8b/spark-sql-shell.png"
+        data-srcset="/Spark%e7%ae%80%e4%bb%8b/spark-sql-shell.png, /Spark%e7%ae%80%e4%bb%8b/spark-sql-shell.png 1.5x, /Spark%e7%ae%80%e4%bb%8b/spark-sql-shell.png 2x"
+        data-sizes="auto"
+        alt="/Spark简介/spark-sql-shell.png"
+        title="/Spark简介/spark-sql-shell.png" /></p>
+<h5 id="创建dataset">创建Dataset</h5>
+<p>Spark 支持由内部数据集和外部数据集来创建 DataSet，其创建方式分别如下：</p>
+<h6 id="由外部数据集创建">由外部数据集创建</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// 1.需要导入隐式转换
+</span><span class="c1"></span><span class="k">import</span> <span class="nn">spark.implicits._</span>
+
+<span class="c1">// 2.创建 case class,等价于 Java Bean
+</span><span class="c1"></span><span class="k">case</span> <span class="k">class</span> <span class="nc">Emp</span><span class="o">(</span><span class="n">ename</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">comm</span><span class="k">:</span> <span class="kt">Double</span><span class="o">,</span> <span class="n">deptno</span><span class="k">:</span> <span class="kt">Long</span><span class="o">,</span> <span class="n">empno</span><span class="k">:</span> <span class="kt">Long</span><span class="o">,</span> 
+               <span class="n">hiredate</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">job</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">mgr</span><span class="k">:</span> <span class="kt">Long</span><span class="o">,</span> <span class="n">sal</span><span class="k">:</span> <span class="kt">Double</span><span class="o">)</span>
+
+<span class="c1">// 3.由外部数据集创建 Datasets
+</span><span class="c1"></span><span class="k">val</span> <span class="n">ds</span> <span class="k">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">json</span><span class="o">(</span><span class="s">&#34;/usr/file/emp.json&#34;</span><span class="o">).</span><span class="n">as</span><span class="o">[</span><span class="kt">Emp</span><span class="o">]</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">show</span><span class="o">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="由内部数据集创建">由内部数据集创建</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// 1.需要导入隐式转换
+</span><span class="c1"></span><span class="k">import</span> <span class="nn">spark.implicits._</span>
+
+<span class="c1">// 2.创建 case class,等价于 Java Bean
+</span><span class="c1"></span><span class="k">case</span> <span class="k">class</span> <span class="nc">Emp</span><span class="o">(</span><span class="n">ename</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">comm</span><span class="k">:</span> <span class="kt">Double</span><span class="o">,</span> <span class="n">deptno</span><span class="k">:</span> <span class="kt">Long</span><span class="o">,</span> <span class="n">empno</span><span class="k">:</span> <span class="kt">Long</span><span class="o">,</span> 
+               <span class="n">hiredate</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">job</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">mgr</span><span class="k">:</span> <span class="kt">Long</span><span class="o">,</span> <span class="n">sal</span><span class="k">:</span> <span class="kt">Double</span><span class="o">)</span>
+
+<span class="c1">// 3.由内部数据集创建 Datasets
+</span><span class="c1"></span><span class="k">val</span> <span class="n">caseClassDS</span> <span class="k">=</span> <span class="nc">Seq</span><span class="o">(</span><span class="nc">Emp</span><span class="o">(</span><span class="s">&#34;ALLEN&#34;</span><span class="o">,</span> <span class="mf">300.0</span><span class="o">,</span> <span class="mi">30</span><span class="o">,</span> <span class="mi">7499</span><span class="o">,</span> <span class="s">&#34;1981-02-20 00:00:00&#34;</span><span class="o">,</span> <span class="s">&#34;SALESMAN&#34;</span><span class="o">,</span> <span class="mi">7698</span><span class="o">,</span> <span class="mf">1600.0</span><span class="o">),</span>
+                      <span class="nc">Emp</span><span class="o">(</span><span class="s">&#34;JONES&#34;</span><span class="o">,</span> <span class="mf">300.0</span><span class="o">,</span> <span class="mi">30</span><span class="o">,</span> <span class="mi">7499</span><span class="o">,</span> <span class="s">&#34;1981-02-20 00:00:00&#34;</span><span class="o">,</span> <span class="s">&#34;SALESMAN&#34;</span><span class="o">,</span> <span class="mi">7698</span><span class="o">,</span> <span class="mf">1600.0</span><span class="o">))</span>
+                    <span class="o">.</span><span class="n">toDS</span><span class="o">()</span>
+<span class="n">caseClassDS</span><span class="o">.</span><span class="n">show</span><span class="o">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="由rdd创建dataframe">由RDD创建DataFrame</h5>
+<p>Spark 支持两种方式把 RDD 转换为 DataFrame，分别是使用反射推断和指定 Schema 转换：</p>
+<h6 id="使用反射推断">使用反射推断</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// 1.导入隐式转换
+</span><span class="c1"></span><span class="k">import</span> <span class="nn">spark.implicits._</span>
+
+<span class="c1">// 2.创建部门类
+</span><span class="c1"></span><span class="k">case</span> <span class="k">class</span> <span class="nc">Dept</span><span class="o">(</span><span class="n">deptno</span><span class="k">:</span> <span class="kt">Long</span><span class="o">,</span> <span class="n">dname</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">loc</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span>
+
+<span class="c1">// 3.创建 RDD 并转换为 dataSet
+</span><span class="c1"></span><span class="k">val</span> <span class="n">rddToDS</span> <span class="k">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span>
+  <span class="o">.</span><span class="n">textFile</span><span class="o">(</span><span class="s">&#34;/usr/file/dept.txt&#34;</span><span class="o">)</span>
+  <span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">split</span><span class="o">(</span><span class="s">&#34;\t&#34;</span><span class="o">))</span>
+  <span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">line</span> <span class="k">=&gt;</span> <span class="nc">Dept</span><span class="o">(</span><span class="n">line</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="n">trim</span><span class="o">.</span><span class="n">toLong</span><span class="o">,</span> <span class="n">line</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span> <span class="n">line</span><span class="o">(</span><span class="mi">2</span><span class="o">)))</span>
+  <span class="o">.</span><span class="n">toDS</span><span class="o">()</span>  <span class="c1">// 如果调用 toDF() 则转换为 dataFrame 
+</span></code></pre></td></tr></table>
+</div>
+</div><h6 id="以编程方式指定schema">以编程方式指定Schema</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">import</span> <span class="nn">org.apache.spark.sql.Row</span>
+<span class="k">import</span> <span class="nn">org.apache.spark.sql.types._</span>
+
+
+<span class="c1">// 1.定义每个列的列类型
+</span><span class="c1"></span><span class="k">val</span> <span class="n">fields</span> <span class="k">=</span> <span class="nc">Array</span><span class="o">(</span><span class="nc">StructField</span><span class="o">(</span><span class="s">&#34;deptno&#34;</span><span class="o">,</span> <span class="nc">LongType</span><span class="o">,</span> <span class="n">nullable</span> <span class="k">=</span> <span class="kc">true</span><span class="o">),</span>
+                   <span class="nc">StructField</span><span class="o">(</span><span class="s">&#34;dname&#34;</span><span class="o">,</span> <span class="nc">StringType</span><span class="o">,</span> <span class="n">nullable</span> <span class="k">=</span> <span class="kc">true</span><span class="o">),</span>
+                   <span class="nc">StructField</span><span class="o">(</span><span class="s">&#34;loc&#34;</span><span class="o">,</span> <span class="nc">StringType</span><span class="o">,</span> <span class="n">nullable</span> <span class="k">=</span> <span class="kc">true</span><span class="o">))</span>
+
+<span class="c1">// 2.创建 schema
+</span><span class="c1"></span><span class="k">val</span> <span class="n">schema</span> <span class="k">=</span> <span class="nc">StructType</span><span class="o">(</span><span class="n">fields</span><span class="o">)</span>
+
+<span class="c1">// 3.创建 RDD
+</span><span class="c1"></span><span class="k">val</span> <span class="n">deptRDD</span> <span class="k">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">textFile</span><span class="o">(</span><span class="s">&#34;/usr/file/dept.txt&#34;</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">rowRDD</span> <span class="k">=</span> <span class="n">deptRDD</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">split</span><span class="o">(</span><span class="s">&#34;\t&#34;</span><span class="o">)).</span><span class="n">map</span><span class="o">(</span><span class="n">line</span> <span class="k">=&gt;</span> <span class="nc">Row</span><span class="o">(</span><span class="n">line</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="n">toLong</span><span class="o">,</span> <span class="n">line</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span> <span class="n">line</span><span class="o">(</span><span class="mi">2</span><span class="o">)))</span>
+
+
+<span class="c1">// 4.将 RDD 转换为 dataFrame
+</span><span class="c1"></span><span class="k">val</span> <span class="n">deptDF</span> <span class="k">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">createDataFrame</span><span class="o">(</span><span class="n">rowRDD</span><span class="o">,</span> <span class="n">schema</span><span class="o">)</span>
+<span class="n">deptDF</span><span class="o">.</span><span class="n">show</span><span class="o">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="dataframes与datasets互相转换">DataFrames与Datasets互相转换</h5>
+<p>Spark 提供了非常简单的转换方法用于 DataFrame 与 Dataset 间的互相转换，示例如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># DataFrames转Datasets</span>
+scala&gt; df.as<span class="o">[</span>Emp<span class="o">]</span>
+res1: org.apache.spark.sql.Dataset<span class="o">[</span>Emp<span class="o">]</span> <span class="o">=</span> <span class="o">[</span>COMM: double, DEPTNO: bigint ... <span class="m">6</span> more fields<span class="o">]</span>
+
+<span class="c1"># Datasets转DataFrames</span>
+scala&gt; ds.toDF<span class="o">()</span>
+res2: org.apache.spark.sql.DataFrame <span class="o">=</span> <span class="o">[</span>COMM: double, DEPTNO: bigint ... <span class="m">6</span> more fields<span class="o">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="columns列操作">Columns列操作</h2>
+<h3 id="引用列">引用列</h3>
+<p>Spark 支持多种方法来构造和引用列，最简单的是使用 <code>col() </code> 或 <code>column() </code> 函数。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-scala" data-lang="scala"><span class="n">col</span><span class="o">(</span><span class="s">&#34;colName&#34;</span><span class="o">)</span>
+<span class="n">column</span><span class="o">(</span><span class="s">&#34;colName&#34;</span><span class="o">)</span>
+
+<span class="c1">// 对于 Scala 语言而言，还可以使用$&#34;myColumn&#34;和&#39;myColumn 这两种语法糖进行引用。
+</span><span class="c1"></span><span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="o">(</span><span class="n">$</span><span class="s">&#34;ename&#34;</span><span class="o">,</span> <span class="n">$</span><span class="s">&#34;job&#34;</span><span class="o">).</span><span class="n">show</span><span class="o">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="o">(</span>&#39;ename<span class="o">,</span> &#39;job<span class="o">).</span><span class="n">show</span><span class="o">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="新增列">新增列</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// 基于已有列值新增列
+</span><span class="c1"></span><span class="n">df</span><span class="o">.</span><span class="n">withColumn</span><span class="o">(</span><span class="s">&#34;upSal&#34;</span><span class="o">,</span><span class="n">$</span><span class="s">&#34;sal&#34;</span><span class="o">+</span><span class="mi">1000</span><span class="o">)</span>
+<span class="c1">// 基于固定值新增列
+</span><span class="c1"></span><span class="n">df</span><span class="o">.</span><span class="n">withColumn</span><span class="o">(</span><span class="s">&#34;intCol&#34;</span><span class="o">,</span><span class="n">lit</span><span class="o">(</span><span class="mi">1000</span><span class="o">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="删除列">删除列</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// 支持删除多个列
+</span><span class="c1"></span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="o">(</span><span class="s">&#34;comm&#34;</span><span class="o">,</span><span class="s">&#34;job&#34;</span><span class="o">).</span><span class="n">show</span><span class="o">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="重命名列">重命名列</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-scala" data-lang="scala"><span class="n">df</span><span class="o">.</span><span class="n">withColumnRenamed</span><span class="o">(</span><span class="s">&#34;comm&#34;</span><span class="o">,</span> <span class="s">&#34;common&#34;</span><span class="o">).</span><span class="n">show</span><span class="o">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>需要说明的是新增，删除，重命名列都会产生新的 DataFrame，原来的 DataFrame 不会被改变。</p>
+<h2 id="使用structured-api进行基本查询">使用Structured API进行基本查询</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// 1.查询员工姓名及工作
+</span><span class="c1"></span><span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="o">(</span><span class="n">$</span><span class="s">&#34;ename&#34;</span><span class="o">,</span> <span class="n">$</span><span class="s">&#34;job&#34;</span><span class="o">).</span><span class="n">show</span><span class="o">()</span>
+
+<span class="c1">// 2.filter 查询工资大于 2000 的员工信息
+</span><span class="c1"></span><span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="n">$</span><span class="s">&#34;sal&#34;</span> <span class="o">&gt;</span> <span class="mi">2000</span><span class="o">).</span><span class="n">show</span><span class="o">()</span>
+
+<span class="c1">// 3.orderBy 按照部门编号降序，工资升序进行查询
+</span><span class="c1"></span><span class="n">df</span><span class="o">.</span><span class="n">orderBy</span><span class="o">(</span><span class="n">desc</span><span class="o">(</span><span class="s">&#34;deptno&#34;</span><span class="o">),</span> <span class="n">asc</span><span class="o">(</span><span class="s">&#34;sal&#34;</span><span class="o">)).</span><span class="n">show</span><span class="o">()</span>
+
+<span class="c1">// 4.limit 查询工资最高的 3 名员工的信息
+</span><span class="c1"></span><span class="n">df</span><span class="o">.</span><span class="n">orderBy</span><span class="o">(</span><span class="n">desc</span><span class="o">(</span><span class="s">&#34;sal&#34;</span><span class="o">)).</span><span class="n">limit</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="n">show</span><span class="o">()</span>
+
+<span class="c1">// 5.distinct 查询所有部门编号
+</span><span class="c1"></span><span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="o">(</span><span class="s">&#34;deptno&#34;</span><span class="o">).</span><span class="n">distinct</span><span class="o">().</span><span class="n">show</span><span class="o">()</span>
+
+<span class="c1">// 6.groupBy 分组统计部门人数
+</span><span class="c1"></span><span class="n">df</span><span class="o">.</span><span class="n">groupBy</span><span class="o">(</span><span class="s">&#34;deptno&#34;</span><span class="o">).</span><span class="n">count</span><span class="o">().</span><span class="n">show</span><span class="o">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="使用spark-sql进行基本查询">使用Spark SQL进行基本查询</h2>
+<h3 id="spark--sql基本使用">Spark  SQL基本使用</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// 1.首先需要将 DataFrame 注册为临时视图
+</span><span class="c1"></span><span class="n">df</span><span class="o">.</span><span class="n">createOrReplaceTempView</span><span class="o">(</span><span class="s">&#34;emp&#34;</span><span class="o">)</span>
+
+<span class="c1">// 2.查询员工姓名及工作
+</span><span class="c1"></span><span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="o">(</span><span class="s">&#34;SELECT ename,job FROM emp&#34;</span><span class="o">).</span><span class="n">show</span><span class="o">()</span>
+
+<span class="c1">// 3.查询工资大于 2000 的员工信息
+</span><span class="c1"></span><span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="o">(</span><span class="s">&#34;SELECT * FROM emp where sal &gt; 2000&#34;</span><span class="o">).</span><span class="n">show</span><span class="o">()</span>
+
+<span class="c1">// 4.orderBy 按照部门编号降序，工资升序进行查询
+</span><span class="c1"></span><span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="o">(</span><span class="s">&#34;SELECT * FROM emp ORDER BY deptno DESC,sal ASC&#34;</span><span class="o">).</span><span class="n">show</span><span class="o">()</span>
+
+<span class="c1">// 5.limit  查询工资最高的 3 名员工的信息
+</span><span class="c1"></span><span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="o">(</span><span class="s">&#34;SELECT * FROM emp ORDER BY sal DESC LIMIT 3&#34;</span><span class="o">).</span><span class="n">show</span><span class="o">()</span>
+
+<span class="c1">// 6.distinct 查询所有部门编号
+</span><span class="c1"></span><span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="o">(</span><span class="s">&#34;SELECT DISTINCT(deptno) FROM emp&#34;</span><span class="o">).</span><span class="n">show</span><span class="o">()</span>
+
+<span class="c1">// 7.分组统计部门人数
+</span><span class="c1"></span><span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="o">(</span><span class="s">&#34;SELECT deptno,count(ename) FROM emp group by deptno&#34;</span><span class="o">).</span><span class="n">show</span><span class="o">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="全局临时视图">全局临时视图</h3>
+<p>上面使用 <code>createOrReplaceTempView</code> 创建的是会话临时视图，它的生命周期仅限于会话范围，会随会话的结束而结束。</p>
+<p>你也可以使用 <code>createGlobalTempView</code> 创建全局临时视图，全局临时视图可以在所有会话之间共享，并直到整个 Spark 应用程序终止后才会消失。全局临时视图被定义在内置的 <code>global_temp</code> 数据库下，需要使用限定名称进行引用，如 <code>SELECT * FROM global_temp.view1</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// 注册为全局临时视图
+</span><span class="c1"></span><span class="n">df</span><span class="o">.</span><span class="n">createGlobalTempView</span><span class="o">(</span><span class="s">&#34;gemp&#34;</span><span class="o">)</span>
+
+<span class="c1">// 使用限定名称进行引用
+</span><span class="c1"></span><span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="o">(</span><span class="s">&#34;SELECT ename,job FROM global_temp.gemp&#34;</span><span class="o">).</span><span class="n">show</span><span class="o">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="参考文献">参考文献</h1>
+<p><a href="https://spark.apache.org/docs/latest/index.html">https://spark.apache.org/docs/latest/index.html</a></p>
+<p><a href="https://spark.apache.org/docs/latest/sql-programming-guide.html">https://spark.apache.org/docs/latest/sql-programming-guide.html</a></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
