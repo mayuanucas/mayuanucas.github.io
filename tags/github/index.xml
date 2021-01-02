@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>GitHub - 标签 - Raven</title>
+        <link>https://mayuanucas.github.io/tags/github/</link>
+        <description>GitHub - 标签 - Raven</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mayuanucas@163.com (Raven)</managingEditor>
+            <webMaster>mayuanucas@163.com (Raven)</webMaster><lastBuildDate>Sat, 04 Jan 2020 17:28:30 &#43;0800</lastBuildDate><atom:link href="https://mayuanucas.github.io/tags/github/" rel="self" type="application/rss+xml" /><item>
+    <title>Github入门与实践</title>
+    <link>https://mayuanucas.github.io/github%E6%8E%A2%E7%B4%A2/</link>
+    <pubDate>Sat, 04 Jan 2020 17:28:30 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mayuanucas.github.io/github%E6%8E%A2%E7%B4%A2/</guid>
+    <description><![CDATA[本文对 GitHub 的使用进行介绍. 前言 GitHub是通过Git进行版本控制的软件源代码托管服务平台，于2008年4月上线，2018年6月被微软公司收购]]></description>
+</item></channel>
+</rss>
