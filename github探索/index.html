@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/mayuanucas.github.io\/github%E6%8E%A2%E7%B4%A2\/"
-        },"genre": "posts","keywords": "GitHub","wordcount":  3262 ,
+        },"genre": "posts","keywords": "GitHub","wordcount":  3058 ,
         "url": "https:\/\/mayuanucas.github.io\/github%E6%8E%A2%E7%B4%A2\/","datePublished": "2020-01-04T17:28:30+08:00","dateModified": "2020-01-04T17:28:30+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -106,7 +106,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Github入门与实践</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://mayuanucas.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Raven</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw"></i>效率工具</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-01-04">2020-01-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3262 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-01-04">2020-01-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3058 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -167,15 +167,36 @@
 <h1 id="git与github的区别和联系">Git与GitHub的区别和联系</h1>
 <p>谈到 GitHub, 就必定会提到Git。 Git是一个开源的分布式版本控制系统,简单来说，Git 是一个管理&quot;代码的历史记录&quot;的工具,而 GitHub 本质上是一个代码托管平台，它提供的是基于 Git 的代码托管服务。对于一个团队来说，即使不使用 GitHub，也可以通过自己搭建和管理 Git 服务器来进行代码库的管理，或者选择其它一些代码托管平台，如 Gitee(码云), GitLab等。</p>
 <p>使用 Git 管理代码前需要从 Git 官网 <strong><a href="https://git-scm.com/">https://git-scm.com/</a></strong> 下载相应平台的安装包并完成安装. Git 的本身不具备图形界面，一般只能在终端输入命令进行使用.但是在安装 Git 的同时，其实也装好了它提供的可视化工具，gitk 和 git-gui. gitk 是一个历史记录的图形化查看器, git-gui 主要是一个用来制作提交的工具.</p>
-<p>{% asset_img github探索/git.png Git官网 %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/github%e6%8e%a2%e7%b4%a2/git.png"
+        data-srcset="/github%e6%8e%a2%e7%b4%a2/git.png, /github%e6%8e%a2%e7%b4%a2/git.png 1.5x, /github%e6%8e%a2%e7%b4%a2/git.png 2x"
+        data-sizes="auto"
+        alt="/github探索/git.png"
+        title="/github探索/git.png" /></p>
 <p>GitHub 也发布了面向工作流程的 Git 客户端：提供了Windows 版和 Mac 版,它们很好的展示了一个面向工作流程的工具——专注于提升常用的功能及提高协作效率.</p>
-<p>{% asset_img github_desktop.png GitHub客户端 %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/github%e6%8e%a2%e7%b4%a2/github_desktop.png"
+        data-srcset="/github%e6%8e%a2%e7%b4%a2/github_desktop.png, /github%e6%8e%a2%e7%b4%a2/github_desktop.png 1.5x, /github%e6%8e%a2%e7%b4%a2/github_desktop.png 2x"
+        data-sizes="auto"
+        alt="/github探索/github_desktop.png"
+        title="/github探索/github_desktop.png" /></p>
 <h1 id="github概览">GitHub概览</h1>
 <h2 id="基础应用场景">基础应用场景</h2>
 <p>GitHub 的基础应用场景是作为远程的代码存储,代码版本控制.</p>
 <h2 id="常用应用场景">常用应用场景</h2>
 <h3 id="协同开发">协同开发</h3>
-<p>{% asset_img xietongkaifa.jpeg 多人协同开发 %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/github%e6%8e%a2%e7%b4%a2/xietongkaifa.jpeg"
+        data-srcset="/github%e6%8e%a2%e7%b4%a2/xietongkaifa.jpeg, /github%e6%8e%a2%e7%b4%a2/xietongkaifa.jpeg 1.5x, /github%e6%8e%a2%e7%b4%a2/xietongkaifa.jpeg 2x"
+        data-sizes="auto"
+        alt="/github探索/xietongkaifa.jpeg"
+        title="/github探索/xietongkaifa.jpeg" /></p>
 <h3 id="获取学习优秀的开源项目">获取(学习)优秀的开源项目</h3>
 <p>由于存放在 Github <strong>公有仓库</strong>的代码是公开的，所以可以很方便的获取、使用、学习这些优秀开源项目的代码和文档.</p>
 <h4 id="国内外科技公司">国内外科技公司</h4>
@@ -219,11 +240,25 @@
 <ol>
 <li>Linux 发明者 <code>Linus Torvalds</code>：https://github.com/torvalds</li>
 </ol>
-<p>{% asset_img LinusTorvalds.png Linus Torvalds %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/github%e6%8e%a2%e7%b4%a2/LinusTorvalds.png"
+        data-srcset="/github%e6%8e%a2%e7%b4%a2/LinusTorvalds.png, /github%e6%8e%a2%e7%b4%a2/LinusTorvalds.png 1.5x, /github%e6%8e%a2%e7%b4%a2/LinusTorvalds.png 2x"
+        data-sizes="auto"
+        alt="/github探索/LinusTorvalds.png"
+        title="/github探索/LinusTorvalds.png" /></p>
 <ol start="2">
 <li>Hands-On Machine Learning with Scikit-Learn and TensorFlow 的作者 <code>Aurélien Geron</code>：https://github.com/ageron</li>
 </ol>
-<p>{% asset_img hands_on_author.png Aurélien Geron %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/github%e6%8e%a2%e7%b4%a2/hands_on_author.png"
+        data-srcset="/github%e6%8e%a2%e7%b4%a2/hands_on_author.png, /github%e6%8e%a2%e7%b4%a2/hands_on_author.png 1.5x, /github%e6%8e%a2%e7%b4%a2/hands_on_author.png 2x"
+        data-sizes="auto"
+        alt="/github探索/hands_on_author.png"
+        title="/github探索/hands_on_author.png" /></p>
 <h4 id="优秀的开源项目">优秀的开源项目</h4>
 <table>
 <thead>
@@ -254,19 +289,54 @@
 <h2 id="其它应用场景">其它应用场景</h2>
 <h3 id="搭建个人网站">搭建个人网站</h3>
 <p>基于 <code>GitHub Pages</code> 搭建博客，不仅搭建简单，同时还可自定义样式、绑定域名。</p>
-<p>{% asset_img luc.png 个人博客 %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/github%e6%8e%a2%e7%b4%a2/luc.png"
+        data-srcset="/github%e6%8e%a2%e7%b4%a2/luc.png, /github%e6%8e%a2%e7%b4%a2/luc.png 1.5x, /github%e6%8e%a2%e7%b4%a2/luc.png 2x"
+        data-sizes="auto"
+        alt="/github探索/luc.png"
+        title="/github探索/luc.png" /></p>
 <h3 id="接触优秀开发者的有效渠道">接触优秀开发者的有效渠道</h3>
 <p>GitHub 个人主页会有联系邮箱、个人网站等信息，通过这些信息可以与技术专家进行沟通交流。</p>
-<p>{% asset_img hands_on_author.png Aurélien Geron %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/github%e6%8e%a2%e7%b4%a2/hands_on_author.png"
+        data-srcset="/github%e6%8e%a2%e7%b4%a2/hands_on_author.png, /github%e6%8e%a2%e7%b4%a2/hands_on_author.png 1.5x, /github%e6%8e%a2%e7%b4%a2/hands_on_author.png 2x"
+        data-sizes="auto"
+        alt="/github探索/hands_on_author.png"
+        title="/github探索/hands_on_author.png" /></p>
 <h3 id="用github协作翻译">用GitHub协作翻译</h3>
 <p>国内的一些社区会用 GitHub 组织志愿者进行文档的协作翻译。</p>
-<p>{% asset_img sklearn_cn.png scikit-learn 官方文档中文版 %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/github%e6%8e%a2%e7%b4%a2/sklearn_cn.png"
+        data-srcset="/github%e6%8e%a2%e7%b4%a2/sklearn_cn.png, /github%e6%8e%a2%e7%b4%a2/sklearn_cn.png 1.5x, /github%e6%8e%a2%e7%b4%a2/sklearn_cn.png 2x"
+        data-sizes="auto"
+        alt="/github探索/sklearn_cn.png"
+        title="/github探索/sklearn_cn.png" /></p>
 <h1 id="个人仪表板">个人仪表板</h1>
 <p>个人仪表板是登录 GitHub 时显示的第一页。访问个人仪表板，可以跟踪参与或关注的议题和拉取请求，浏览常用仓库和团队页面，了解订阅的组织和仓库中近期活动的最新信息，以及探索推荐的仓库。登录后要访问个人仪表板，在任意页面点击左上角的网站图标就能跳转到仪表板页面。</p>
-<p>{% asset_img home.png 个人仪表板%}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/github%e6%8e%a2%e7%b4%a2/home.png"
+        data-srcset="/github%e6%8e%a2%e7%b4%a2/home.png, /github%e6%8e%a2%e7%b4%a2/home.png 1.5x, /github%e6%8e%a2%e7%b4%a2/home.png 2x"
+        data-sizes="auto"
+        alt="/github探索/home.png"
+        title="/github探索/home.png" /></p>
 <h1 id="个人资料profile">个人资料(Profile)</h1>
 <p>个人资料页面不仅展示了开发者的个人介绍, 联系邮箱, 博客地址, 社交账号, 还展示了开发者创建的或 Fork 的仓库, 页面最下方还展示了开发者每天的活跃程度(每天提交的 commit 越多, 对应日期的小方格颜色越深).</p>
-<p>{% asset_img profile.png  your profile %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/github%e6%8e%a2%e7%b4%a2/profile.png"
+        data-srcset="/github%e6%8e%a2%e7%b4%a2/profile.png, /github%e6%8e%a2%e7%b4%a2/profile.png 1.5x, /github%e6%8e%a2%e7%b4%a2/profile.png 2x"
+        data-sizes="auto"
+        alt="/github探索/profile.png"
+        title="/github探索/profile.png" /></p>
 <h1 id="仓库">仓库</h1>
 <p><strong>GitHub 常用术语介绍:</strong></p>
 <ul>
@@ -295,26 +365,89 @@
 <p><strong>Gist</strong>：如果我们没有项目可以开源或者只是单纯的想分享一些代码片段的话，我们就可以选择Gist。</p>
 </li>
 </ul>
-<p>{% asset_img repo.png  仓库 %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/github%e6%8e%a2%e7%b4%a2/repo.png"
+        data-srcset="/github%e6%8e%a2%e7%b4%a2/repo.png, /github%e6%8e%a2%e7%b4%a2/repo.png 1.5x, /github%e6%8e%a2%e7%b4%a2/repo.png 2x"
+        data-sizes="auto"
+        alt="/github探索/repo.png"
+        title="/github探索/repo.png" /></p>
 <h1 id="topics">Topics</h1>
 <p>GitHub Topic 页面展示了最新和最流行的讨论主题，在这里不仅能够看到开发项目，还能看到很多非开发技术的讨论主题.</p>
-<p>{% asset_img topic.png  Topics %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/github%e6%8e%a2%e7%b4%a2/topic.png"
+        data-srcset="/github%e6%8e%a2%e7%b4%a2/topic.png, /github%e6%8e%a2%e7%b4%a2/topic.png 1.5x, /github%e6%8e%a2%e7%b4%a2/topic.png 2x"
+        data-sizes="auto"
+        alt="/github探索/topic.png"
+        title="/github探索/topic.png" /></p>
 <h1 id="trending">Trending</h1>
 <p>GitHub Trending 页面展示了每天/每周/每月周期的热门 Repositories 和 Developers，可以看到在某个周期处于热门状态的开发项目和开发者。</p>
-<p>{% asset_img trending.png  Trending %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/github%e6%8e%a2%e7%b4%a2/trending.png"
+        data-srcset="/github%e6%8e%a2%e7%b4%a2/trending.png, /github%e6%8e%a2%e7%b4%a2/trending.png 1.5x, /github%e6%8e%a2%e7%b4%a2/trending.png 2x"
+        data-sizes="auto"
+        alt="/github探索/trending.png"
+        title="/github探索/trending.png" /></p>
 <h1 id="github搜索">GitHub搜索</h1>
-<p>{% asset_img search01.png  GitHub搜索 %}</p>
-<p>{% asset_img search02.png  GitHub搜索 %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/github%e6%8e%a2%e7%b4%a2/search01.png"
+        data-srcset="/github%e6%8e%a2%e7%b4%a2/search01.png, /github%e6%8e%a2%e7%b4%a2/search01.png 1.5x, /github%e6%8e%a2%e7%b4%a2/search01.png 2x"
+        data-sizes="auto"
+        alt="/github探索/search01.png"
+        title="/github探索/search01.png" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/github%e6%8e%a2%e7%b4%a2/search02.png"
+        data-srcset="/github%e6%8e%a2%e7%b4%a2/search02.png, /github%e6%8e%a2%e7%b4%a2/search02.png 1.5x, /github%e6%8e%a2%e7%b4%a2/search02.png 2x"
+        data-sizes="auto"
+        alt="/github探索/search02.png"
+        title="/github探索/search02.png" /></p>
 <h2 id="搜索开发者">搜索开发者</h2>
-<p>{% asset_img skaifazhe.jpg 搜索开发者 %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/github%e6%8e%a2%e7%b4%a2/skaifazhe.jpg"
+        data-srcset="/github%e6%8e%a2%e7%b4%a2/skaifazhe.jpg, /github%e6%8e%a2%e7%b4%a2/skaifazhe.jpg 1.5x, /github%e6%8e%a2%e7%b4%a2/skaifazhe.jpg 2x"
+        data-sizes="auto"
+        alt="/github探索/skaifazhe.jpg"
+        title="/github探索/skaifazhe.jpg" /></p>
 <p>比如需要寻找国产软件，搜索时设置 location 为 china，如果要寻找使用 javascript 语言开发者，则再增加 language 为 javascript，整个搜索条件就是：<code>language:javascript location:china</code>，从搜索结果来看，我们找到了超过 2.1 万名地区信息填写为 china 的 javascript 开发者，朋友们熟悉的阮一峰老师排在前列。根据官方手册，搜索 GitHub 用户时还支持使用 followers、in:fullname 组合条件进行搜索。</p>
-<p>{% asset_img kfz.png 搜索开发者 %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/github%e6%8e%a2%e7%b4%a2/kfz.png"
+        data-srcset="/github%e6%8e%a2%e7%b4%a2/kfz.png, /github%e6%8e%a2%e7%b4%a2/kfz.png 1.5x, /github%e6%8e%a2%e7%b4%a2/kfz.png 2x"
+        data-sizes="auto"
+        alt="/github探索/kfz.png"
+        title="/github探索/kfz.png" /></p>
 <h2 id="搜索仓库">搜索仓库</h2>
 <p>在 GitHub 上找到优秀的项目和工具，通过关键字或者设置搜索条件能够帮助我们事半功倍找到好资源。</p>
-<p>{% asset_img sxm01.jpg 搜索仓库 %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/github%e6%8e%a2%e7%b4%a2/sxm01.jpg"
+        data-srcset="/github%e6%8e%a2%e7%b4%a2/sxm01.jpg, /github%e6%8e%a2%e7%b4%a2/sxm01.jpg 1.5x, /github%e6%8e%a2%e7%b4%a2/sxm01.jpg 2x"
+        data-sizes="auto"
+        alt="/github探索/sxm01.jpg"
+        title="/github探索/sxm01.jpg" /></p>
 <h3 id="设定搜索条件">设定搜索条件</h3>
 <p>如果明确需要寻找某类特定的项目，比如用某种语言开发、Stars 数量需要达到标准的项目，在搜索框中直接输入搜索条件即可。其中用于发现项目，常用的搜索条件有：stars:、language:、forks:、in:，这些条件是设置搜索条件为项目收藏数量、开发语言、Fork数量. 比如输入 stars:&gt;=5000 language:python，得到的结果 就是收藏大于和等于 5000 的 python 项目。</p>
-<p>{% asset_img tj01.png 搜索条件 %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/github%e6%8e%a2%e7%b4%a2/tj01.png"
+        data-srcset="/github%e6%8e%a2%e7%b4%a2/tj01.png, /github%e6%8e%a2%e7%b4%a2/tj01.png 1.5x, /github%e6%8e%a2%e7%b4%a2/tj01.png 2x"
+        data-sizes="auto"
+        alt="/github探索/tj01.png"
+        title="/github探索/tj01.png" /></p>
 <p>通过 in: 限定符，可以将搜索限制为仓库名称、仓库说明、自述文件内容或这些的任意组合。</p>
 <table>
 <thead>
@@ -342,9 +475,23 @@
 </tr>
 </tbody>
 </table>
-<p>{% asset_img tj02.png in限定符 %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/github%e6%8e%a2%e7%b4%a2/tj02.png"
+        data-srcset="/github%e6%8e%a2%e7%b4%a2/tj02.png, /github%e6%8e%a2%e7%b4%a2/tj02.png 1.5x, /github%e6%8e%a2%e7%b4%a2/tj02.png 2x"
+        data-sizes="auto"
+        alt="/github探索/tj02.png"
+        title="/github探索/tj02.png" /></p>
 <p>如果觉得记住这些搜索条件略显繁琐的话，使用 GitHub 提供的高级搜索功能同样可自定义条件进行搜索。或者参考官方给出的帮助指南 <a href="https://help.github.com/en/github/searching-for-information-on-github/searching-on-github" target="_blank" rel="noopener noreffer"><strong>Searching on GitHub</strong></a> ，里面有更多关于项目、代码、评论、问题等搜索技巧。</p>
-<p>{% asset_img help.png 指南 %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/github%e6%8e%a2%e7%b4%a2/help.png"
+        data-srcset="/github%e6%8e%a2%e7%b4%a2/help.png, /github%e6%8e%a2%e7%b4%a2/help.png 1.5x, /github%e6%8e%a2%e7%b4%a2/help.png 2x"
+        data-sizes="auto"
+        alt="/github探索/help.png"
+        title="/github探索/help.png" /></p>
 <h1 id="结语">结语</h1>
 <p>GitHub 网站上有很多优秀的开源项目，利用 GitHub 提供的各种功能，包括高级搜索、Topic、Trending 等专题页面，不仅可以帮助我们发现更多好用的效率工具和开源项目, 而且还能帮助我们了解业界最新的研究动态, 提高开发能力。</p>
 </div><div class="post-footer" id="post-footer">

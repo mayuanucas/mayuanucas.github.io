@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/mayuanucas.github.io\/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%85%A5%E9%97%A8\/"
-        },"genre": "posts","keywords": "正则表达式","wordcount":  3561 ,
+        },"genre": "posts","keywords": "正则表达式","wordcount":  3355 ,
         "url": "https:\/\/mayuanucas.github.io\/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%85%A5%E9%97%A8\/","datePublished": "2020-07-04T14:55:16+08:00","dateModified": "2020-07-04T14:55:16+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -106,8 +106,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">正则表达式入门</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://mayuanucas.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Raven</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw"></i>效率工具</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-07-04">2020-07-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3561 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-07-04">2020-07-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3355 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -169,7 +169,14 @@
 <p>元字符就是指那些在正则表达式中具有特殊意义的专用字符，元字符是构成正则表达式的基本元件，正则就是由一系列的元字符组成的。</p>
 <h2 id="元字符的分类">元字符的分类</h2>
 <p>元字符大致分成这几类：表示单个特殊字符的，表示空白符的，表示某个范围的，表示次数的量词，另外还有表示断言的，我们可以把它理解成边界限定。</p>
-<p>{% asset_img yuanzifufenlei.png 元字符分类%}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/yuanzifufenlei.png"
+        data-srcset="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/yuanzifufenlei.png, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/yuanzifufenlei.png 1.5x, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/yuanzifufenlei.png 2x"
+        data-sizes="auto"
+        alt="/正则表达式入门/yuanzifufenlei.png"
+        title="元字符分类" /></p>
 <h3 id="特殊单字符">特殊单字符</h3>
 <table>
 <thead>
@@ -201,41 +208,111 @@
 </tr>
 </tbody>
 </table>
-<p>{% asset_img tsdzf.png 特殊单字符%}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/tsdzf.png"
+        data-srcset="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/tsdzf.png, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/tsdzf.png 1.5x, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/tsdzf.png 2x"
+        data-sizes="auto"
+        alt="/正则表达式入门/tsdzf.png"
+        title="特殊单字符" /></p>
 <h3 id="空白符">空白符</h3>
 <p>除了特殊单字符外，你在处理文本的时候肯定还会遇到空格、换行等空白符。其实在写代码的时候也会经常用到，换行符 \n，TAB 制表符 \t 等。</p>
 <p>有编程经验的程序员肯定都知道，不同的系统在每行文本结束位置默认的“换行”会有区别。比如在 Windows 里是 \r\n，在 Linux 和 MacOS 中是 \n。在正则中，也是类似于 \n 或 \r 等方式来表示空白符号，只要记住它们就行了。平时使用正则，大部分场景使用 \s 就可以满足需求，\s 代表任意单个空白符号。 \s 能匹配上各种空白符号，也可以匹配上空格。换行有专门的表示方式，在正则中，空格就是用普通的字符英文的空格来表示。</p>
-<p>{% asset_img kbf.png 空白符%}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/kbf.png"
+        data-srcset="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/kbf.png, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/kbf.png 1.5x, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/kbf.png 2x"
+        data-sizes="auto"
+        alt="/正则表达式入门/kbf.png"
+        title="空白符" /></p>
 <h3 id="量词">量词</h3>
 <p>在正则中，英文的星号 (*) 代表出现 0 到多次，加号 (+) 代表 1 到多次，问号 (?) 代表 0 到 1 次，{m,n}代表 m 到 n 次。</p>
-<p>{% asset_img lc.png 量词%}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/lc.png"
+        data-srcset="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/lc.png, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/lc.png 1.5x, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/lc.png 2x"
+        data-sizes="auto"
+        alt="/正则表达式入门/lc.png"
+        title="量词" /></p>
 <h3 id="范围">范围</h3>
 <p>在正则表达式中，表示范围的符号有四个分类：</p>
-<p>{% asset_img fanwei.png 范围%}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/fanwei.png"
+        data-srcset="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/fanwei.png, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/fanwei.png 1.5x, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/fanwei.png 2x"
+        data-sizes="auto"
+        alt="/正则表达式入门/fanwei.png"
+        title="范围" /></p>
 <p>首先是管道符号，用它来隔开多个正则，表示满足其中任意一个就行，比如 ab|bc 能匹配上 ab，也能匹配上 bc，在正则有多种情况时，这个非常有用。中括号[]代表多选一，可以表示里面的任意单个字符，所以任意元音字母可以用 [aeiou] 来表示。另外，中括号中，我们还可以用中划线表示范围，比如 [a-z] 可以表示所有小写字母。如果中括号第一个是脱字符（^），那么就表示非，表达的是不能是里面的任何单个元素。</p>
 <h1 id="量词与贪婪">量词与贪婪</h1>
 <h2 id="贪婪匹配">贪婪匹配</h2>
 <p>在正则中，表示次数的量词默认是贪婪的，在贪婪模式下，会尝试尽可能最大长度去匹配。<strong>贪婪模式的特点就是尽可能进行最大长度匹配。</strong></p>
 <p>例如：在字符串 aaabb 中使用正则 a* 的匹配过程。a* 在匹配开头的 a 时，会尝试尽量匹配更多的 a，直到第一个字母 b 不满足要求为止，匹配上三个 a，后面每次匹配时都得到了空字符串。</p>
-<p>{% asset_img tlpp.png 贪婪匹配 %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/tlpp.png"
+        data-srcset="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/tlpp.png, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/tlpp.png 1.5x, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/tlpp.png 2x"
+        data-sizes="auto"
+        alt="/正则表达式入门/tlpp.png"
+        title="贪婪匹配" /></p>
 <h2 id="非贪婪匹配">非贪婪匹配</h2>
 <p>非贪婪模式会尽可能短地去匹配，在量词后面加上英文的问号 (?)，正则就变成了 a*?。</p>
-<p>{% asset_img ftl01.png 非贪婪匹配 %}</p>
-<p>{% asset_img ftl02.png 非贪婪匹配 %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/ftl01.png"
+        data-srcset="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/ftl01.png, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/ftl01.png 1.5x, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/ftl01.png 2x"
+        data-sizes="auto"
+        alt="/正则表达式入门/ftl01.png"
+        title="非贪婪匹配" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/ftl02.png"
+        data-srcset="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/ftl02.png, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/ftl02.png 1.5x, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/ftl02.png 2x"
+        data-sizes="auto"
+        alt="/正则表达式入门/ftl02.png"
+        title="非贪婪匹配" /></p>
 <h2 id="独占模式">独占模式</h2>
 <p>独占模式和贪婪模式很像，独占模式会尽可能多地去匹配，如果匹配失败就结束，不会进行回溯，这样的话就比较节省时间。具体的方法就是在量词后面加上加号（+）。</p>
 <p>独占模式性能比较好，可以节约匹配的时间和 CPU 资源，但有些情况下并不能满足需求，要想使用这个模式还要看具体需求（比如我们接下来要讲的案例），另外还得看你当前使用的语言或库的支持程度。</p>
 <h1 id="分组与引用">分组与引用</h1>
 <h2 id="分组与编号">分组与编号</h2>
 <p>括号在正则中可以用于分组，被括号括起来的部分“子表达式”会被保存成一个子组。分组和编号的规则，用一句话来说就是，第几个括号就是第几个分组。以时间格式 2020-05-10 20:23:05为例，假设想要使用正则提取出里面的日期和时间。</p>
-<p>{% asset_img fzybh.png 分组示例%}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/fzybh.png"
+        data-srcset="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/fzybh.png, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/fzybh.png 1.5x, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/fzybh.png 2x"
+        data-sizes="auto"
+        alt="/正则表达式入门/fzybh.png"
+        title="分组示例" /></p>
 <p>可以写出如图所示的正则，将日期和时间都括号括起来。这个正则中一共有两个分组，日期是第 1 个，时间是第 2 个。</p>
 <h2 id="不保存子组">不保存子组</h2>
 <p>在括号里面的会保存成子组，但有些情况下，你可能只想用括号将某些部分看成一个整体，后续不用再用它，类似这种情况，在实际使用时，是没必要保存子组的。这时可以在括号里面使用 ?: 不保存子组。由于子组变少了，正则性能会更好，在子组计数时也更不容易出错。那什么是不保存子组呢？可以理解成，括号只用于归组，把某个部分当成“单个元素”，不分配编号，后面不会再进行这部分的引用。</p>
-<p>{% asset_img nozizu.png 不保存子组%}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/nozizu.png"
+        data-srcset="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/nozizu.png, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/nozizu.png 1.5x, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/nozizu.png 2x"
+        data-sizes="auto"
+        alt="/正则表达式入门/nozizu.png"
+        title="不保存子组" /></p>
 <h2 id="括号嵌套">括号嵌套</h2>
 <p>要看某个括号里面的内容是第几个分组怎么办？不要担心，其实方法很简单，我们只需要数左括号（开括号）是第几个，就可以确定是第几个子组。</p>
-<p>{% asset_img kuohaoqiantao.png 括号嵌套%}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/kuohaoqiantao.png"
+        data-srcset="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/kuohaoqiantao.png, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/kuohaoqiantao.png 1.5x, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/kuohaoqiantao.png 2x"
+        data-sizes="auto"
+        alt="/正则表达式入门/kuohaoqiantao.png"
+        title="括号嵌套" /></p>
 <h2 id="命名分组">命名分组</h2>
 <p>命名分组的格式为(?P&lt;分组名&gt;正则)，例如 Django的路由中，命名分组示例如下：</p>
 <div class="highlight"><div class="chroma">
@@ -248,15 +325,43 @@
 </div>
 </div><h2 id="分组引用">分组引用</h2>
 <p>大部分情况下，我们就可以使用 “反斜扛 + 编号”，即 \number 的方式来进行引用，而 JavaScript 中是通过“$”编号来引用，如“$1”。</p>
-<p>{% asset_img fenzu.png 分组引用%}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/fenzu.png"
+        data-srcset="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/fenzu.png, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/fenzu.png 1.5x, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/fenzu.png 2x"
+        data-sizes="auto"
+        alt="/正则表达式入门/fenzu.png"
+        title="分组引用" /></p>
 <h1 id="匹配模式">匹配模式</h1>
 <h2 id="不区分大小写模式">不区分大小写模式</h2>
 <p>把模式修饰符放在整个正则前面时，就表示整个正则表达式都是不区分大小写的。模式修饰符是通过 (? 模式标识) 的方式来表示的。 我们只需要把模式修饰符放在对应的正则前，就可以使用指定的模式了。在不区分大小写模式中，由于不分大小写的英文是 Case-Insensitive，那么对应的模式标识就是 I 的小写字母 i，所以不区分大小写的 cat 就可以写成 (?i)cat。</p>
-<p>{% asset_img dxx01.png 不区分大小写%}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/dxx01.png"
+        data-srcset="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/dxx01.png, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/dxx01.png 1.5x, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/dxx01.png 2x"
+        data-sizes="auto"
+        alt="/正则表达式入门/dxx01.png"
+        title="不区分大小写" /></p>
 <p>也可以用它来尝试匹配两个连续出现的 cat，如下图所示，你会发现，即便是第一个 cat 和第二个 cat 大小写不一致，也可以匹配上。</p>
-<p>{% asset_img dxx02.png 不区分大小写%}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/dxx02.png"
+        data-srcset="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/dxx02.png, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/dxx02.png 1.5x, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/dxx02.png 2x"
+        data-sizes="auto"
+        alt="/正则表达式入门/dxx02.png"
+        title="不区分大小写" /></p>
 <p>如果我们想要前面匹配上的结果，和第二次重复时的大小写一致，那该怎么做呢？我们只需要用括号把修饰符和正则 cat 部分括起来，加括号相当于作用范围的限定，让不区分大小写只作用于这个括号里的内容。</p>
-<p>{% asset_img dxx03.png 不区分大小写%}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/dxx03.png"
+        data-srcset="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/dxx03.png, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/dxx03.png 1.5x, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/dxx03.png 2x"
+        data-sizes="auto"
+        alt="/正则表达式入门/dxx03.png"
+        title="不区分大小写" /></p>
 <p>通过修饰符指定匹配模式的方式，在大部分编程语言中都是可以直接使用的，但在 JS 中我们需要使用 /regex/i 来指定匹配模式。在编程语言中通常会提供一些预定义的常量，来进行匹配模式的指定。比如 Python 中可以使用 re.IGNORECASE 或 re.I ，来传入正则函数中来表示不区分大小写。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -282,12 +387,33 @@
 <p>英文的点（.）可以匹配上任何符号，但不能匹配换行。当我们需要匹配真正的“任意”符号的时候，可以使用 [\s\S] 或 [\d\D] 或 [\w\W] 等。</p>
 <p>但是这么写不够简洁自然，所以正则中提供了一种模式，让英文的点（.）可以匹配上包括换行的任何字符。</p>
 <p>这个模式就是点号通配模式，有很多地方把它称作单行匹配模式，但这么说容易造成误解，毕竟它与多行匹配模式没有联系，因此在这里统一用更容易理解的“点号通配模式”。单行的英文表示是 Single Line，单行模式对应的修饰符是 (?s)，这里选择用 the cat 来举一个点号通配模式的例子。如下图所示：</p>
-<p>{% asset_img dh.png 点号通配模式%}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/dh.png"
+        data-srcset="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/dh.png, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/dh.png 1.5x, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/dh.png 2x"
+        data-sizes="auto"
+        alt="/正则表达式入门/dh.png"
+        title="点号通配模式" /></p>
 <h2 id="多行匹配模式multiline">多行匹配模式（Multiline）</h2>
 <p>通常情况下，^ 匹配整个字符串的开头，$  匹配整个字符串的结尾。多行匹配模式改变的就是 \ ^ 和 $ 的匹配行为。</p>
-<p>{% asset_img duohang01.png 多行匹配模型%}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/duohang01.png"
+        data-srcset="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/duohang01.png, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/duohang01.png 1.5x, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/duohang01.png 2x"
+        data-sizes="auto"
+        alt="/正则表达式入门/duohang01.png"
+        title="多行匹配模型" /></p>
 <p>多行模式的作用在于，使 ^ 和 $ 能匹配上每行的开头或结尾，我们可以使用模式修饰符号 (?m) 来指定这个模式。</p>
-<p>{% asset_img duohang02.png 多行匹配模型%}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/duohang02.png"
+        data-srcset="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/duohang02.png, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/duohang02.png 1.5x, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/duohang02.png 2x"
+        data-sizes="auto"
+        alt="/正则表达式入门/duohang02.png"
+        title="多行匹配模型" /></p>
 <h2 id="注释模式comment">注释模式（Comment）</h2>
 <p>在写代码的时候，通常会在一些关键的地方加上注释，让代码更易于理解。很多语言也支持在正则中添加注释，让正则更容易阅读和维护，这就是正则的注释模式。正则中注释模式是使用 (?#comment) 来表示。例如：</p>
 <div class="highlight"><div class="chroma">
@@ -301,13 +427,34 @@
 </div><h1 id="断言">断言</h1>
 <h2 id="单词边界">单词边界</h2>
 <p>在正则中使用\b 来表示单词的边界。 \b 中的 b 可以理解为是边界（Boundary）这个单词的首字母。</p>
-<p>{% asset_img dcbj.png 单词边界%}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/dcbj.png"
+        data-srcset="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/dcbj.png, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/dcbj.png 1.5x, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/dcbj.png 2x"
+        data-sizes="auto"
+        alt="/正则表达式入门/dcbj.png"
+        title="单词边界" /></p>
 <h2 id="行的开始或结束">行的开始或结束</h2>
 <p>和单词的边界类似，在正则中还有文本每行的开始和结束，如果我们要求匹配的内容要出现在一行文本开头或结尾，就可以使用 ^ 和 $ 来进行位置界定。</p>
-<p>{% asset_img huanhang.png 换行符%}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/huanhang.png"
+        data-srcset="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/huanhang.png, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/huanhang.png 1.5x, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/huanhang.png 2x"
+        data-sizes="auto"
+        alt="/正则表达式入门/huanhang.png"
+        title="换行符" /></p>
 <h2 id="环视">环视</h2>
 <p>左尖括号代表看左边，没有尖括号是看右边，感叹号是非的意思。</p>
-<p>{% asset_img huanshi.png 环视记忆%}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/huanshi01.png"
+        data-srcset="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/huanshi01.png, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/huanshi01.png 1.5x, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/huanshi01.png 2x"
+        data-sizes="auto"
+        alt="/正则表达式入门/huanshi01.png"
+        title="环视记忆" /></p>
 <p>因此，针对邮编的问题，就可以写成左边不是数字，右边也不是数字的 6 位数的正则。即</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -318,7 +465,14 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>例如：用正则分组引用来实现替换重复出现的单词。</p>
-<p>{% asset_img lizi.png 单词替换%}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/lizi.png"
+        data-srcset="/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/lizi.png, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/lizi.png 1.5x, /%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e5%85%a5%e9%97%a8/lizi.png 2x"
+        data-sizes="auto"
+        alt="/正则表达式入门/lizi.png"
+        title="单词替换" /></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">

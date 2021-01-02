@@ -133,7 +133,7 @@ $$
 
 还可以从另一个角度去理解目标函数,即方差-偏差困境。在机器学习中，用来衡量模型在未知数据上的准确率的指标，叫做泛化误差（Genelization error）。一个集成模型(f) 在未知数据集(D)上的泛化误差 $E(f;D)$ ，由方差(var)，偏差(bais)和噪声 $\varepsilon$共同决定，泛化误差越小，模型就越理想。从下面的图可以看出来，方差和偏差是此消彼长的，并且模型的复杂度越高，方差越大，偏差越小。
 
-{% asset_img fckj.png 方差-偏差困境 %}
+![](/XGBoost与LightGBM/fckj.png)
 
 方差可以被简单地解释为模型在不同数据集上表现出来地稳定性，而偏差是模型预测的准确度。那方差-偏差困境就可以对应到 Obj 中了:
 
@@ -160,7 +160,7 @@ $$
 
 还可以选择自定义损失函数。比如说，我们可以选择输入平方损失 $l(y_i, \hat{y_i} = (y_i - \hat{y_i})^2)$，此时XGBoost 其实就是算法梯度提升机器（gradient boosted machine）。在xgboost中，我们被允许自定义损失函数，但通常我们还是使用类已经为我们设置好的损失函数。回归类中本来使用的就是reg:linear，因此在这里无需做任何调整。注意：分类型的目标函数导入回归类中会直接报错。现在来试试看xgb自身的调用方式。
 
-{% asset_img dyfs.png xgboost自身的调用方式 %}
+![](/XGBoost与LightGBM/dyfs.png)
 
 由于xgb中所有的参数都需要自己的输入，并且objective参数的默认值是二分类，因此我们必须手动调节。
 
@@ -634,7 +634,7 @@ $$
 - 第三，考虑使用categorical features的不同组合。例如颜色和种类组合起来，可以构成类似于blue dog这样的特征。当需要组合的categorical features变多时，CatBoost只考虑一部分combinations。在选择第一个节点时，只考虑选择一个特征，例如A。在生成第二个节点时，考虑A和任意一个categorical feature的组合，选择其中最好的。就这样使用贪心算法生成combinations。
 - 第四，除非向gender这种维数很小的情况，不建议自己生成One-hot编码向量，最好交给算法来处理。
 
-{% asset_img  catboost01.png Categorical features %}
+![](/XGBoost与LightGBM/catboost01.png)
 
 ## 克服梯度偏差
 
@@ -650,7 +650,7 @@ CatBoost和所有标准梯度提升算法一样，都是通过构建新树来拟
 
 设 $F_i$ 为构建i 棵树后的模型，$g^i(X_k,Y_k)$ 为构建 i棵树后第k 个训练样本上面的梯度值。为了使得$g^i(X_k,Y_k)$ 无偏于模型 $F_i$ ，我们需要在没有$X_k$ 参与的情况下对模型 进行训练。由于我们需要对所有训练样本计算无偏的梯度估计，乍看起来对于$F_i$ 的训练不能使用任何样本，貌似无法实现的样子。我们运用下面这个技巧来处理这个问题：对于每一个样本 $X_k$，我们训练一个单独的模型 $M_k$，且该模型从不使用基于该样本的梯度估计进行更新。我们使用$M_k$ 来估计 $X_k$ 上的梯度，并使用这个估计对结果树进行评分。用伪码描述如下，其中 $Loss(y_i, a)$ 是需要优化的损失函数， y 是标签值， a 是公式计算值。
 
-{% asset_img  catboost02.png 算法%}
+![](/XGBoost与LightGBM/catboost02.png)
 
 ## 预测偏移和排序提升
 
@@ -691,7 +691,7 @@ $$
 
 为了克服预测偏移问题，CatBoost提出了一种新的叫做Ordered boosting的算法。
 
-{% asset_img ordered.png ordered boosting算法 %}
+![](/XGBoost与LightGBM/ordered.png)
 
 由上图的Ordered boosting算法可知，为了得到无偏梯度估计, CatBoost对每一个样本 都会训练一个单独的模型 ，模型 由使用不包含样本的训练集训练得到。我们使用 来得到关于样本的梯度估计，并使用该梯度来训练基学习器并得到最终的模型。
 
@@ -872,4 +872,4 @@ XGBoost 和 CatBoost、 LighGBM 算法不同，XGBoost 本身无法处理类别�
 
 # 集成学习
 
-{% asset_img jc01.png 集成学习 %}
+![集成学习](/XGBoost与LightGBM/jc01.png)

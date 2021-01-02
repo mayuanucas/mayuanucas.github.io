@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/mayuanucas.github.io\/spark%E7%AE%80%E4%BB%8B\/"
-        },"genre": "posts","keywords": "Spark, scala","wordcount":  5521 ,
+        },"genre": "posts","keywords": "Spark, scala","wordcount":  5439 ,
         "url": "https:\/\/mayuanucas.github.io\/spark%E7%AE%80%E4%BB%8B\/","datePublished": "2020-03-09T17:54:58+08:00","dateModified": "2020-03-09T17:54:58+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -106,8 +106,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Spark简介</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://mayuanucas.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Raven</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw"></i>机器学习</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-03-09">2020-03-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5521 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 12 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-03-09">2020-03-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5439 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 11 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -203,7 +203,14 @@
 <li>丰富的部署模式：支持本地模式和自带的集群模式，也支持在 Hadoop，Mesos，Kubernetes 上运行；</li>
 <li>多数据源支持：支持访问 HDFS，Alluxio，Cassandra，HBase，Hive 以及数百个其他数据源中的数据。</li>
 </ul>
-<p>{% asset_img future-of-spark.png %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Spark%e7%ae%80%e4%bb%8b/future-of-spark.png"
+        data-srcset="/Spark%e7%ae%80%e4%bb%8b/future-of-spark.png, /Spark%e7%ae%80%e4%bb%8b/future-of-spark.png 1.5x, /Spark%e7%ae%80%e4%bb%8b/future-of-spark.png 2x"
+        data-sizes="auto"
+        alt="/Spark简介/future-of-spark.png"
+        title="/Spark简介/future-of-spark.png" /></p>
 <h1 id="集群架构">集群架构</h1>
 <table>
 <thead>
@@ -239,7 +246,14 @@
 </tr>
 </tbody>
 </table>
-<p>{% asset_img spark-集群模式.png 集群模式 %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Spark%e7%ae%80%e4%bb%8b/spark-%e9%9b%86%e7%be%a4%e6%a8%a1%e5%bc%8f.png"
+        data-srcset="/Spark%e7%ae%80%e4%bb%8b/spark-%e9%9b%86%e7%be%a4%e6%a8%a1%e5%bc%8f.png, /Spark%e7%ae%80%e4%bb%8b/spark-%e9%9b%86%e7%be%a4%e6%a8%a1%e5%bc%8f.png 1.5x, /Spark%e7%ae%80%e4%bb%8b/spark-%e9%9b%86%e7%be%a4%e6%a8%a1%e5%bc%8f.png 2x"
+        data-sizes="auto"
+        alt="/Spark简介/spark-集群模式.png"
+        title="集群模式" /></p>
 <p><strong>执行过程</strong>：</p>
 <ol>
 <li>用户程序创建 SparkContext 后，它会连接到集群资源管理器，集群资源管理器会为用户程序分配计算资源，并启动 Executor；</li>
@@ -248,7 +262,14 @@
 </ol>
 <h1 id="核心组件">核心组件</h1>
 <p>Spark 基于 Spark Core 扩展了四个核心组件，分别用于满足不同领域的计算需求。</p>
-<p>{% asset_img spark-stack.png 核心组件 %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Spark%e7%ae%80%e4%bb%8b/spark-stack.png"
+        data-srcset="/Spark%e7%ae%80%e4%bb%8b/spark-stack.png, /Spark%e7%ae%80%e4%bb%8b/spark-stack.png 1.5x, /Spark%e7%ae%80%e4%bb%8b/spark-stack.png 2x"
+        data-sizes="auto"
+        alt="/Spark简介/spark-stack.png"
+        title="核心组件" /></p>
 <h2 id="spark-sql">Spark SQL</h2>
 <p>Spark SQL 主要用于结构化数据的处理。其具有以下特点：</p>
 <ul>
@@ -260,9 +281,23 @@
 </ul>
 <h2 id="spark-streaming">Spark Streaming</h2>
 <p>Spark Streaming 主要用于快速构建可扩展，高吞吐量，高容错的流处理程序。支持从 HDFS，Flume，Kafka，Twitter 和 ZeroMQ 读取数据，并进行处理。</p>
-<p>{% asset_img  spark-streaming-arch.png %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Spark%e7%ae%80%e4%bb%8b/spark-streaming-arch.png"
+        data-srcset="/Spark%e7%ae%80%e4%bb%8b/spark-streaming-arch.png, /Spark%e7%ae%80%e4%bb%8b/spark-streaming-arch.png 1.5x, /Spark%e7%ae%80%e4%bb%8b/spark-streaming-arch.png 2x"
+        data-sizes="auto"
+        alt="/Spark简介/spark-streaming-arch.png"
+        title="/Spark简介/spark-streaming-arch.png" /></p>
 <p>Spark Streaming 的本质是微批处理，它将数据流进行极小粒度的拆分，拆分为多个批处理，从而达到接近于流处理的效果。</p>
-<p>{% asset_img  spark-streaming-flow.png %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Spark%e7%ae%80%e4%bb%8b/spark-streaming-flow.png"
+        data-srcset="/Spark%e7%ae%80%e4%bb%8b/spark-streaming-flow.png, /Spark%e7%ae%80%e4%bb%8b/spark-streaming-flow.png 1.5x, /Spark%e7%ae%80%e4%bb%8b/spark-streaming-flow.png 2x"
+        data-sizes="auto"
+        alt="/Spark简介/spark-streaming-flow.png"
+        title="/Spark简介/spark-streaming-flow.png" /></p>
 <h2 id="mllib">MLlib</h2>
 <p>MLlib 是 Spark 的机器学习库。其设计目标是使得机器学习变得简单且可扩展。它提供了以下工具：</p>
 <ul>
@@ -330,7 +365,14 @@
 <li>支持优化器，列式存储和代码生成等特性；</li>
 <li>支持扩展并能保证容错。</li>
 </ul>
-<p>{% asset_img sql-hive-arch.png %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Spark%e7%ae%80%e4%bb%8b/sql-hive-arch.png"
+        data-srcset="/Spark%e7%ae%80%e4%bb%8b/sql-hive-arch.png, /Spark%e7%ae%80%e4%bb%8b/sql-hive-arch.png 1.5x, /Spark%e7%ae%80%e4%bb%8b/sql-hive-arch.png 2x"
+        data-sizes="auto"
+        alt="/Spark简介/sql-hive-arch.png"
+        title="/Spark简介/sql-hive-arch.png" /></p>
 <h2 id="dataframe--dataset">DataFrame &amp; DataSet</h2>
 <h3 id="dataframe">DataFrame</h3>
 <p>为了支持结构化数据的处理，Spark SQL 提供了新的数据结构 DataFrame。DataFrame 是一个由具名列组成的数据集。它在概念上等同于关系数据库中的表或 R/Python 语言中的 dataframe。 由于 Spark SQL 支持多种语言的开发，所以每种语言都定义了 DataFrame 的抽象，主要如下：</p>
@@ -362,7 +404,14 @@
 </table>
 <h3 id="dataframe-对比-rdds">DataFrame 对比 RDDs</h3>
 <p>DataFrame 和 RDDs 最主要的区别在于一个面向的是结构化数据，一个面向的是非结构化数据，它们内部的数据结构如下：</p>
-<p>{% asset_img spark-dataFrame+RDDs.png %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Spark%e7%ae%80%e4%bb%8b/spark-dataFrame&#43;RDDs.png"
+        data-srcset="/Spark%e7%ae%80%e4%bb%8b/spark-dataFrame&#43;RDDs.png, /Spark%e7%ae%80%e4%bb%8b/spark-dataFrame&#43;RDDs.png 1.5x, /Spark%e7%ae%80%e4%bb%8b/spark-dataFrame&#43;RDDs.png 2x"
+        data-sizes="auto"
+        alt="/Spark简介/spark-dataFrame&#43;RDDs.png"
+        title="/Spark简介/spark-dataFrame&#43;RDDs.png" /></p>
 <p>DataFrame 内部的有明确 Scheme 结构，即列名、列字段类型都是已知的，这带来的好处是可以减少数据读取以及更好地优化执行计划，从而保证查询效率。</p>
 <p><strong>DataFrame 和 RDDs 应该如何选择？</strong></p>
 <ul>
@@ -376,7 +425,14 @@
 <p>静态类型 (Static-typing) 与运行时类型安全 (runtime type-safety) 主要表现是：在实际使用中，如果你用的是 Spark SQL 的查询语句，则直到运行时你才会发现有语法错误，而如果你用的是 DataFrame 和 Dataset，则在编译时就可以发现错误 (这节省了开发时间和整体代价)。DataFrame 和 Dataset 主要区别在于：</p>
 <p>在 DataFrame 中，当你调用了 API 之外的函数，编译器就会报错，但如果你使用了一个不存在的字段名字，编译器依然无法发现。而 Dataset 的 API 都是用 Lambda 函数和 JVM 类型对象表示的，所有不匹配的类型参数在编译时就会被发现。</p>
 <p>以上这些最终都被解释成关于类型安全图谱，对应开发中的语法和分析错误。在图谱中，Dataset 最严格，但对于开发者来说效率最高。</p>
-<p>{% asset_img spark-运行安全.png %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Spark%e7%ae%80%e4%bb%8b/spark-%e8%bf%90%e8%a1%8c%e5%ae%89%e5%85%a8.png"
+        data-srcset="/Spark%e7%ae%80%e4%bb%8b/spark-%e8%bf%90%e8%a1%8c%e5%ae%89%e5%85%a8.png, /Spark%e7%ae%80%e4%bb%8b/spark-%e8%bf%90%e8%a1%8c%e5%ae%89%e5%85%a8.png 1.5x, /Spark%e7%ae%80%e4%bb%8b/spark-%e8%bf%90%e8%a1%8c%e5%ae%89%e5%85%a8.png 2x"
+        data-sizes="auto"
+        alt="/Spark简介/spark-运行安全.png"
+        title="/Spark简介/spark-运行安全.png" /></p>
 <h3 id="dataframe--dataset--rdds-总结">DataFrame &amp; DataSet &amp; RDDs 总结</h3>
 <p>这里对三者做一下简单的总结：</p>
 <ul>
@@ -385,7 +441,14 @@
 <li>相比于 DataFrame 而言，DataSet 是强类型的 (Typed)，有着更为严格的静态类型检查；</li>
 <li>DataSets、DataFrames、SQL 的底层都依赖了 RDDs API，并对外提供结构化的访问接口。</li>
 </ul>
-<p>{% asset_img spark-structure-api.png %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Spark%e7%ae%80%e4%bb%8b/spark-structure-api.png"
+        data-srcset="/Spark%e7%ae%80%e4%bb%8b/spark-structure-api.png, /Spark%e7%ae%80%e4%bb%8b/spark-structure-api.png 1.5x, /Spark%e7%ae%80%e4%bb%8b/spark-structure-api.png 2x"
+        data-sizes="auto"
+        alt="/Spark简介/spark-structure-api.png"
+        title="/Spark简介/spark-structure-api.png" /></p>
 <h3 id="spark-sql的运行原理">Spark SQL的运行原理</h3>
 <p>DataFrame、DataSet 和 Spark SQL 的实际执行流程都是相同的：</p>
 <ol>
@@ -396,10 +459,24 @@
 </ol>
 <h4 id="逻辑计划logical-plan">逻辑计划(Logical Plan)</h4>
 <p>执行的第一个阶段是将用户代码转换成一个逻辑计划。它首先将用户代码转换成 <code>unresolved logical plan</code>(未解决的逻辑计划)，之所以这个计划是未解决的，是因为尽管您的代码在语法上是正确的，但是它引用的表或列可能不存在。 Spark 使用 <code>analyzer</code>(分析器) 基于 <code>catalog</code>(存储的所有表和 <code>DataFrames</code> 的信息) 进行解析。解析失败则拒绝执行，解析成功则将结果传给 <code>Catalyst</code> 优化器 (<code>Catalyst Optimizer</code>)，优化器是一组规则的集合，用于优化逻辑计划，通过谓词下推等方式进行优化，最终输出优化后的逻辑执行计划。</p>
-<p>{% asset_img spark-Logical-Planning.png %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Spark%e7%ae%80%e4%bb%8b/spark-Logical-Planning.png"
+        data-srcset="/Spark%e7%ae%80%e4%bb%8b/spark-Logical-Planning.png, /Spark%e7%ae%80%e4%bb%8b/spark-Logical-Planning.png 1.5x, /Spark%e7%ae%80%e4%bb%8b/spark-Logical-Planning.png 2x"
+        data-sizes="auto"
+        alt="/Spark简介/spark-Logical-Planning.png"
+        title="/Spark简介/spark-Logical-Planning.png" /></p>
 <h4 id="物理计划physical-plan">物理计划(Physical Plan)</h4>
 <p>得到优化后的逻辑计划后，Spark 就开始了物理计划过程。 它通过生成不同的物理执行策略，并通过成本模型来比较它们，从而选择一个最优的物理计划在集群上面执行的。物理规划的输出结果是一系列的 RDDs 和转换关系 (transformations)。</p>
-<p>{% asset_img spark-Physical-Planning.png %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Spark%e7%ae%80%e4%bb%8b/spark-Physical-Planning.png"
+        data-srcset="/Spark%e7%ae%80%e4%bb%8b/spark-Physical-Planning.png, /Spark%e7%ae%80%e4%bb%8b/spark-Physical-Planning.png 1.5x, /Spark%e7%ae%80%e4%bb%8b/spark-Physical-Planning.png 2x"
+        data-sizes="auto"
+        alt="/Spark简介/spark-Physical-Planning.png"
+        title="/Spark简介/spark-Physical-Planning.png" /></p>
 <h4 id="执行">执行</h4>
 <p>在选择一个物理计划后，Spark 运行其 RDDs 代码，并在运行时执行进一步的优化，生成本地 Java 字节码，最后将运行结果返回给用户。</p>
 <h3 id="structured-api基本使用">Structured API基本使用</h3>
@@ -425,7 +502,14 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>可以使用 <code>spark-shell</code> 进行测试，需要注意的是 <code>spark-shell</code> 启动后会自动创建一个名为 <code>spark</code> 的 <code>SparkSession</code>，在命令行中可以直接引用即可：</p>
-<p>{% asset_img spark-sql-shell.png %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Spark%e7%ae%80%e4%bb%8b/spark-sql-shell.png"
+        data-srcset="/Spark%e7%ae%80%e4%bb%8b/spark-sql-shell.png, /Spark%e7%ae%80%e4%bb%8b/spark-sql-shell.png 1.5x, /Spark%e7%ae%80%e4%bb%8b/spark-sql-shell.png 2x"
+        data-sizes="auto"
+        alt="/Spark简介/spark-sql-shell.png"
+        title="/Spark简介/spark-sql-shell.png" /></p>
 <h5 id="创建dataset">创建Dataset</h5>
 <p>Spark 支持由内部数据集和外部数据集来创建 DataSet，其创建方式分别如下：</p>
 <h6 id="由外部数据集创建">由外部数据集创建</h6>

@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/mayuanucas.github.io\/xgboost%E4%B8%8Elightgbm\/"
-        },"genre": "posts","keywords": "机器学习, 数据挖掘, sklearn","wordcount":  18952 ,
+        },"genre": "posts","keywords": "机器学习, 数据挖掘, sklearn","wordcount":  18887 ,
         "url": "https:\/\/mayuanucas.github.io\/xgboost%E4%B8%8Elightgbm\/","datePublished": "2020-02-10T16:31:40+08:00","dateModified": "2020-02-10T16:31:40+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -106,7 +106,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">XGBoost与LightGBM</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://mayuanucas.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Raven</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw"></i>机器学习</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-02-10">2020-02-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 18952 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-02-10">2020-02-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 18887 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 38 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -479,7 +479,14 @@ Obj = \sum_{i=1}^ml(y_i,\hat{y_i}) + \sum_{k=1}^K\Omega(f_k)
 $$</p>
 <p>其中$i$代表数据集中的第 $i$ 个样本，$m$ 表示导入第 $k$ 棵树的数据总量，$K$ 代表建立的所有树(n_estimators)，当只建立了 $t$  棵树的时候，式子应当为  $\sum_{k=1}^t\Omega(f_k)$。第一项代表传统的损失函数，衡量真实标签 $y_i$  与预测值 $\hat{y_i}$  之间的差异，通常是RMSE调节后的均方误差。第二项代表模型的复杂度，使用树模型的某种变换 $\Omega$ 表示，这个变化代表了一个从树的结构来衡量树模型的复杂度的式子，可以有多种定义。注意，我们的第二项中没有特征矩阵 $x_i$ 的介入。我们在迭代 每一棵树的过程中，都最小化 Obj 来力求获取最优的 $\hat{y}$ ，因此我们同时最小化了模型的错误率和模型的复杂度，这种 设计目标函数的方法不得不说实在是非常巧妙和聪明。</p>
 <p>还可以从另一个角度去理解目标函数,即方差-偏差困境。在机器学习中，用来衡量模型在未知数据上的准确率的指标，叫做泛化误差（Genelization error）。一个集成模型(f) 在未知数据集(D)上的泛化误差 $E(f;D)$ ，由方差(var)，偏差(bais)和噪声 $\varepsilon$共同决定，泛化误差越小，模型就越理想。从下面的图可以看出来，方差和偏差是此消彼长的，并且模型的复杂度越高，方差越大，偏差越小。</p>
-<p>{% asset_img fckj.png 方差-偏差困境 %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/XGBoost%e4%b8%8eLightGBM/fckj.png"
+        data-srcset="/XGBoost%e4%b8%8eLightGBM/fckj.png, /XGBoost%e4%b8%8eLightGBM/fckj.png 1.5x, /XGBoost%e4%b8%8eLightGBM/fckj.png 2x"
+        data-sizes="auto"
+        alt="/XGBoost与LightGBM/fckj.png"
+        title="/XGBoost与LightGBM/fckj.png" /></p>
 <p>方差可以被简单地解释为模型在不同数据集上表现出来地稳定性，而偏差是模型预测的准确度。那方差-偏差困境就可以对应到 Obj 中了:</p>
 <p>$$
 Obj = \sum_{i=1}^ml(y_i,\hat{y_i}) + \sum_{k=1}^K\Omega(f_k)
@@ -530,7 +537,14 @@ $$</p>
 </tbody>
 </table>
 <p>还可以选择自定义损失函数。比如说，我们可以选择输入平方损失 $l(y_i, \hat{y_i} = (y_i - \hat{y_i})^2)$，此时XGBoost 其实就是算法梯度提升机器（gradient boosted machine）。在xgboost中，我们被允许自定义损失函数，但通常我们还是使用类已经为我们设置好的损失函数。回归类中本来使用的就是reg:linear，因此在这里无需做任何调整。注意：分类型的目标函数导入回归类中会直接报错。现在来试试看xgb自身的调用方式。</p>
-<p>{% asset_img dyfs.png xgboost自身的调用方式 %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/XGBoost%e4%b8%8eLightGBM/dyfs.png"
+        data-srcset="/XGBoost%e4%b8%8eLightGBM/dyfs.png, /XGBoost%e4%b8%8eLightGBM/dyfs.png 1.5x, /XGBoost%e4%b8%8eLightGBM/dyfs.png 2x"
+        data-sizes="auto"
+        alt="/XGBoost与LightGBM/dyfs.png"
+        title="/XGBoost与LightGBM/dyfs.png" /></p>
 <p>由于xgb中所有的参数都需要自己的输入，并且objective参数的默认值是二分类，因此我们必须手动调节。</p>
 <h4 id="正则化参数">正则化参数</h4>
 <p>对每一棵树，它都有自己独特的结构，这个结构即是指叶子节点的数量，树的深度，叶子的位置等等所形成的一个可以定义唯一模型的树结构。在这个结构中，我们使用 $q(x_i)$表示样本$x_i$ 所在的叶子节点，并且使用$w_{q(x_i)}$ 来表示这个样本落到第 t棵树上的第$q(x_i)$ 个叶子节点中所获得的分数，于是有：</p>
@@ -1322,7 +1336,14 @@ $$</p>
 <li>第三，考虑使用categorical features的不同组合。例如颜色和种类组合起来，可以构成类似于blue dog这样的特征。当需要组合的categorical features变多时，CatBoost只考虑一部分combinations。在选择第一个节点时，只考虑选择一个特征，例如A。在生成第二个节点时，考虑A和任意一个categorical feature的组合，选择其中最好的。就这样使用贪心算法生成combinations。</li>
 <li>第四，除非向gender这种维数很小的情况，不建议自己生成One-hot编码向量，最好交给算法来处理。</li>
 </ul>
-<p>{% asset_img  catboost01.png Categorical features %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/XGBoost%e4%b8%8eLightGBM/catboost01.png"
+        data-srcset="/XGBoost%e4%b8%8eLightGBM/catboost01.png, /XGBoost%e4%b8%8eLightGBM/catboost01.png 1.5x, /XGBoost%e4%b8%8eLightGBM/catboost01.png 2x"
+        data-sizes="auto"
+        alt="/XGBoost与LightGBM/catboost01.png"
+        title="/XGBoost与LightGBM/catboost01.png" /></p>
 <h2 id="克服梯度偏差">克服梯度偏差</h2>
 <p>对于学习CatBoost克服梯度偏差的内容，提出了三个问题：</p>
 <ul>
@@ -1333,7 +1354,14 @@ $$</p>
 <p>CatBoost和所有标准梯度提升算法一样，都是通过构建新树来拟合当前模型的梯度。然而，所有经典的提升算法都存在由有偏的点态梯度估计引起的过拟合问题。在每个步骤中使用的梯度都使用当前模型中的相同的数据点来估计，这导致估计梯度在特征空间的任何域中的分布与该域中梯度的真实分布相比发生了偏移，从而导致过拟合。为了解决这个问题，CatBoost对经典的梯度提升算法进行了一些改进，简要介绍如下。</p>
 <p>许多利用GBDT技术的算法（例如，XGBoost、LightGBM），构建下一棵树分为两个阶段：选择树结构和在树结构固定后计算叶子节点的值。为了选择最佳的树结构，算法通过枚举不同的分割，用这些分割构建树，对得到的叶子节点计算值，然后对得到的树计算评分，最后选择最佳的分割。两个阶段叶子节点的值都是被当做梯度或牛顿步长的近似值来计算。在CatBoost中，第一阶段采用梯度步长的无偏估计，第二阶段使用传统的GBDT方案执行。既然原来的梯度估计是有偏的，那么怎么能改成无偏估计呢？</p>
 <p>设 $F_i$ 为构建i 棵树后的模型，$g^i(X_k,Y_k)$ 为构建 i棵树后第k 个训练样本上面的梯度值。为了使得$g^i(X_k,Y_k)$ 无偏于模型 $F_i$ ，我们需要在没有$X_k$ 参与的情况下对模型 进行训练。由于我们需要对所有训练样本计算无偏的梯度估计，乍看起来对于$F_i$ 的训练不能使用任何样本，貌似无法实现的样子。我们运用下面这个技巧来处理这个问题：对于每一个样本 $X_k$，我们训练一个单独的模型 $M_k$，且该模型从不使用基于该样本的梯度估计进行更新。我们使用$M_k$ 来估计 $X_k$ 上的梯度，并使用这个估计对结果树进行评分。用伪码描述如下，其中 $Loss(y_i, a)$ 是需要优化的损失函数， y 是标签值， a 是公式计算值。</p>
-<p>{% asset_img  catboost02.png 算法%}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/XGBoost%e4%b8%8eLightGBM/catboost02.png"
+        data-srcset="/XGBoost%e4%b8%8eLightGBM/catboost02.png, /XGBoost%e4%b8%8eLightGBM/catboost02.png 1.5x, /XGBoost%e4%b8%8eLightGBM/catboost02.png 2x"
+        data-sizes="auto"
+        alt="/XGBoost与LightGBM/catboost02.png"
+        title="/XGBoost与LightGBM/catboost02.png" /></p>
 <h2 id="预测偏移和排序提升">预测偏移和排序提升</h2>
 <h3 id="预测偏移">预测偏移</h3>
 <p>对于学习预测偏移的内容，提出了两个问题：</p>
@@ -1364,7 +1392,14 @@ $$
 <p>根据 D\${X_k}$ 进行随机计算的条件分布$g^t(X_k, y_k)|X_k$ 与测试集的分布$g^t(X,y)|X$ 发生偏移，这样由公式（3）定义的基学习器 与公式（1）定义的产生偏差，最后影响模型 $F^t$ 的泛化能力。</p>
 <h3 id="排序提升">排序提升</h3>
 <p>为了克服预测偏移问题，CatBoost提出了一种新的叫做Ordered boosting的算法。</p>
-<p>{% asset_img ordered.png ordered boosting算法 %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/XGBoost%e4%b8%8eLightGBM/ordered.png"
+        data-srcset="/XGBoost%e4%b8%8eLightGBM/ordered.png, /XGBoost%e4%b8%8eLightGBM/ordered.png 1.5x, /XGBoost%e4%b8%8eLightGBM/ordered.png 2x"
+        data-sizes="auto"
+        alt="/XGBoost与LightGBM/ordered.png"
+        title="/XGBoost与LightGBM/ordered.png" /></p>
 <p>由上图的Ordered boosting算法可知，为了得到无偏梯度估计, CatBoost对每一个样本 都会训练一个单独的模型 ，模型 由使用不包含样本的训练集训练得到。我们使用 来得到关于样本的梯度估计，并使用该梯度来训练基学习器并得到最终的模型。</p>
 <p>Ordered boosting算法好是好，但是在大部分的实际任务当中都不具备使用价值，因为需要训练 个不同的模型，大大增加的内存消耗和时间复杂度。在CatBoost当中，我们以决策树为基学习器的梯度提升算法的基础上，对该算法进行了改进。</p>
 <p>前面提到过，在传统的GBDT框架当中，构建下一棵树分为两个阶段：选择树结构和在树结构固定后计算叶子节点的值。CatBoost主要在第一阶段进行优化。在建树的阶段，CatBoost有两种提升模式，Ordered和Plain。Plain模式是采用内建的ordered TS对类别型特征进行转化后的标准GBDT算法。Ordered则是对Ordered boosting算法的优化。两种提升模式的具体介绍可以翻看论文《CatBoost: unbiased boosting with categorical features》。</p>
@@ -1626,7 +1661,14 @@ $$</p>
 </div><p>注意，在建立适用于 LighGBM 的数据集之前，需要将类别型特征变量转化为整型变量，此算法不允许将字符串数据传给类别型变量参数。</p>
 <p>XGBoost 和 CatBoost、 LighGBM 算法不同，XGBoost 本身无法处理类别型特征，而是像随机森林一样，只接受数值数据。因此在将类别型特征数据传入 XGBoost 之前，必须通过各种编码方式：例如，序号编码、独热编码和二进制编码等对数据进行处理。</p>
 <h1 id="集成学习">集成学习</h1>
-<p>{% asset_img jc01.png 集成学习 %}</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/XGBoost%e4%b8%8eLightGBM/jc01.png"
+        data-srcset="/XGBoost%e4%b8%8eLightGBM/jc01.png, /XGBoost%e4%b8%8eLightGBM/jc01.png 1.5x, /XGBoost%e4%b8%8eLightGBM/jc01.png 2x"
+        data-sizes="auto"
+        alt="/XGBoost与LightGBM/jc01.png"
+        title="集成学习" /></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
