@@ -1,4 +1,4 @@
-# Spark简介
+# Spark简单介绍
 
 
 Apache Spark 是一个快速的，多用途的集群计算系统。它提供了 Java，Scala，Python 和 R 的高级 API，以及一个支持通用的执行图计算的优化过的引擎。它还支持一组丰富的高级工具，包括使用 SQL 处理结构化数据处理的 [Spark SQL](https://spark.apache.org/docs/latest/sql-programming-guide.html)，用于机器学习的 [MLlib](https://spark.apache.org/docs/latest/ml-guide.html)，用于图计算的 [GraphX](https://spark.apache.org/docs/latest/graphx-programming-guide.html)，以及 [Spark Streaming](https://spark.apache.org/docs/latest/streaming-programming-guide.html)。

@@ -5,14 +5,14 @@
         <description>机器学习 - 分类 - Raven</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mayuanucas@163.com (Raven)</managingEditor>
             <webMaster>mayuanucas@163.com (Raven)</webMaster><lastBuildDate>Mon, 09 Mar 2020 17:54:58 &#43;0800</lastBuildDate><atom:link href="https://mayuanucas.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
-    <title>Spark简介</title>
+    <title>Spark简单介绍</title>
     <link>https://mayuanucas.github.io/spark%E7%AE%80%E4%BB%8B/</link>
     <pubDate>Mon, 09 Mar 2020 17:54:58 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://mayuanucas.github.io/spark%E7%AE%80%E4%BB%8B/</guid>
     <description><![CDATA[Apache Spark 是一个快速的，多用途的集群计算系统。它提供了 Java，Scala，Python 和 R 的高级 API，以及一个支持通用的执行图计算的优化过的引]]></description>
 </item><item>
-    <title>XGBoost与LightGBM</title>
+    <title>XGBoost与LightGBM介绍</title>
     <link>https://mayuanucas.github.io/xgboost%E4%B8%8Elightgbm/</link>
     <pubDate>Mon, 10 Feb 2020 16:31:40 &#43;0800</pubDate>
     <author>作者</author>
