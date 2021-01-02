@@ -17,7 +17,9 @@ GitHub 2019年度报告显示，在过去的一年中，GitHub新增了一千万
 
 使用 Git 管理代码前需要从 Git 官网 **https://git-scm.com/** 下载相应平台的安装包并完成安装. Git 的本身不具备图形界面，一般只能在终端输入命令进行使用.但是在安装 Git 的同时，其实也装好了它提供的可视化工具，gitk 和 git-gui. gitk 是一个历史记录的图形化查看器, git-gui 主要是一个用来制作提交的工具.
 
-![](/github探索/git.png)
+<div align="center">
+<img src=/github探索/git.png width=100% height="100%" />
+</div>
 
 GitHub 也发布了面向工作流程的 Git 客户端：提供了Windows 版和 Mac 版,它们很好的展示了一个面向工作流程的工具——专注于提升常用的功能及提高协作效率.
 
