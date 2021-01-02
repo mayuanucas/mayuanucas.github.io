@@ -872,4 +872,6 @@ XGBoost 和 CatBoost、 LighGBM 算法不同，XGBoost 本身无法处理类别�
 
 # 集成学习
 
-![集成学习](/XGBoost与LightGBM/jc01.png)
+<div align="center">
+	<img src="/XGBoost与LightGBM/jc01.png" width="50%" height="50%">
+</div>
