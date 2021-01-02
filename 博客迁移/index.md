@@ -215,6 +215,80 @@ cd ..
 为了兼容 Hugo 的多语言模式, 你需要上传不同语言的 `index.json` 文件到对应的 algolia index, 例如 `zh-cn/index.json` 或 `fr/index.json`...
 {{< /admonition >}}
 
+### 自动上传
+
+每次写完博文都手动上传索引文件无疑是痛苦的、无意义的重复劳动。
+因此我们需要把上传索引文件的操作自动化，在自动部署的时候顺便完成即可。
+这里我们采用npm包 [atomic-algolia](https://www.npmjs.com/package/atomic-algolia) 来完成上传操作。
+
+- 安装 atomic-algolia 包
+
+  ```bash
+  npm init -y // npm默认生成package.json文件
+  npm install -g atomic-algolia // npm全局安装atomic-algolia
+  ```
+
+- 修改目录下的 `package.json` 文件
+
+  ```bash
+  "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "algolia": "atomic-algolia"
+  },
+  ```
+
+  注意 `"test"` 那一行末尾有个英文逗号，不要漏了。
+
+- **blog** 根目录下新建 `.env` 文件
+
+  ```bash
+  ALGOLIA_APP_ID=你的Application ID
+  ALGOLIA_INDEX_NAME=你的索引名字
+  ALGOLIA_INDEX_FILE=public/algolia.json
+  ALGOLIA_ADMIN_KEY=你的Admin API Key
+  ```
+
+  另外特别注意 `ALGOLIA_ADMIN_KEY` 可以用来管理你的索引，所以尽量不要提交到公共仓库。
+
+- 上传索引的命令
+
+  ```bash
+  npm run algolia	// 在blog根目录下执行
+  ```
+
+  后续就是把下面的命令加到你的部署脚本即可：
+
+  ```bash
+  #!/bin/sh
+  
+  # If a command fails then the deploy stops
+  set -e
+  
+  printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
+  
+  # Build the project.
+  hugo -t LoveIt # if using a theme, replace with `hugo -t <YOURTHEME>`
+  
+  # Go To Public folder
+  cd public
+  
+  # Add changes to git.
+  git add .
+  
+  # Commit changes.
+  msg="rebuilding site $(date)"
+  if [ -n "$*" ]; then
+  	msg="$*"
+  fi
+  git commit -m "$msg"
+  
+  # Push source and build repos.
+  git push origin master
+  cd ..
+  # 自动更新文章索引
+  npm run algolia
+  ```
+
 # 拥抱Hugo
 
 还有更多的功能等待探索中… 目前使用下来，Hugo整体的使用体验很不错，后面会将个人文章陆续迁移到这，慢慢完善。
